@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splash_main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_01">
+    <RelativeLayout
+        android:id="@+id/loadingContainerForPex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/splash_loadingTextForPex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="150dp"
+            android:gravity="center_horizontal"
+            android:text="@string/loading_text"
+            android:textColor="@color/black" />
+        <ProgressBar
+            android:id="@+id/progressBarForPex"
+            style="?android:attr/progressBarStyleSmallInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/splash_loadingTextForPex"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/splash_loading_drawable" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/loadingContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/splash_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/vmworld_logo_black"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:id="@+id/splash_loadingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/splash_logo"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/loading_text"
+            android:visibility="gone"
+            android:textColor="@color/black" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmallInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/splash_loadingText"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="15dp"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/splash_loading_drawable" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/copy_rights_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="10sp" />
+</RelativeLayout>

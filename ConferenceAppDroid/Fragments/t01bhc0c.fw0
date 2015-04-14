@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using ConferenceAppDroid.CustomControls;
+using CommonLayer;
+
+namespace ConferenceAppDroid.Fragments
+{
+    public class Session : Android.Support.V4.App.Fragment
+    {
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.sessionLayout, null);
+            var sessionGroup= view.FindViewById<RadioGroup>(Resource.Id.sessionGroup, null);
+            DataManager.GetUniqueSessionDates(AppDelegateDBHelper.Instance.Connection).ContinueWith(t =>
+            {
+                var lstDate = t.Result;
+            foreach (var item in lstDate)
+            {
+                SegmentedControlButton segmentedControlButton = new SegmentedControlButton(Activity);
+                segmentedControlButton.Text = item;
+                sessionGroup.AddView(segmentedControlButton);
+            }
+            return view;
+
+        }
+    }
+}

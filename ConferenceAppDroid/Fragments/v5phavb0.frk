@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using ConferenceAppDroid.CustomControls;
+using CommonLayer;
+using ConferenceAppDroid.Utilities;
+using System.Globalization;
+
+namespace ConferenceAppDroid.Fragments
+{
+    public class Session : Android.Support.V4.App.Fragment
+    {
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.sessionLayout, null);
+            var sessionGroup = view.FindViewById<RadioGroup>(Resource.Id.sessionGroup);
+            DataManager.GetUniqueSessionDates(DBHelper.Instance.Connection).ContinueWith(t =>
+            {
+                var lstDate = t.Result;
+                Activity.RunOnUiThread(() =>
+                    {
+                        foreach (var item in lstDate)
+                        {
+                            SegmentedControlButton segmentedControlButton = new SegmentedControlButton(Activity);
+                            segmentedControlButton.Text = item;
+                            sessionGroup.AddView(segmentedControlButton);
+                        }
+                    });
+            });
+
+            return view;
+        }
+
+        public string convertToDateInterest(string Date)
+        {
+            if (String.IsNullOrEmpty(Date))
+                return String.Empty;
+
+            if (Date.ToLower().Contains("days"))
+            {
+                return Date;
+            }
+            if (Date.Contains("-"))
+            {
+                try
+                {
+                    var date = DateTime.Parse(Date);
+                    return ToDateTimeString(date, "ddd, MMM dd");
+                }
+                catch
+                {
+                    return String.Empty;
+                }
+            }
+            else
+            {
+                try
+                {
+                    CultureInfo provider = CultureInfo.InvariantCulture;
+                    var format = "ddd MMM dd yyyy";
+                    var date = DateTime.ParseExact(Date, format, provider).ToString("ddd, MMM dd");
+                    return date;
+                }
+                catch
+                {
+                    return String.Empty;
+                }
+            }
+        }
+        public static string ToDateTimeString(DateTime dt, string format)
+        {
+            if (String.IsNullOrWhiteSpace(format))
+                return String.Empty;
+            else
+                return dt.ToString(format);
+        }
+    }
+}

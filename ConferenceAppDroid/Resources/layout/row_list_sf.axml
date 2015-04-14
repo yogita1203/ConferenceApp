@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/sf_section"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/layerlist_section_bg_new_design"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/sf_sectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/text_section_title"
+            android:textSize="@dimen/section_text_size" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sf_section"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/sf_image_dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_default_pic"
+            tools:ignore="ContentDescription" />
+        <ImageView
+            android:id="@+id/sf_image_external"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/arrow"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:id="@+id/sf_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@id/sf_image_external"
+            android:layout_toRightOf="@id/sf_image_dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/sf_text_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sf_text_title"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/sf_image_external"
+            android:layout_toRightOf="@id/sf_image_dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/text_menu_datetime"
+            android:textSize="@dimen/desc_text_size" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:animateLayoutChanges="true">
+    <RelativeLayout
+        android:id="@+id/sponsor_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#051d3f"
+        android:layout_alignParentTop="true"
+        android:visibility="gone">
+        <Button
+            android:id="@+id/sponsor_search_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="7dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/search_large"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/sponsor_search_cancel_container_btn"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#0c3b7f"
+            android:text="@string/cancel_text"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="50dp" />
+        <Button
+            android:id="@+id/sponsor_search_cancel_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toLeftOf="@id/sponsor_search_cancel_container_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_delete_recipient"
+            android:visibility="gone" />
+        <EditText
+            android:id="@+id/sponsor_search_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/sponsor_search_btn"
+            android:layout_toLeftOf="@id/sponsor_search_cancel_btn"
+            android:textColor="@color/white"
+            android:textCursorDrawable="@drawable/bg_white_cursor"
+            android:hint="@string/search_text"
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
+    </RelativeLayout>
+    <com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left"
+        android:numColumns="2"
+        android:layout_below="@id/sponsor_search_container"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="15dp" />
+</RelativeLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_session_row">
+    <LinearLayout
+        android:id="@+id/section"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/layerlist_section_bg_new_design"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/sectionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/text_section_title"
+            android:textSize="@dimen/section_text_size" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/row_handsonlab_arrow_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/section">
+        <ImageView
+            android:id="@+id/row_handsonlab_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/arrow"
+            tools:ignore="ContentDescription" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/row_handsonlab_arrow">
+        <!-- <ImageView
+                 android:id="@+id/imageView"
+                 android:layout_width="50dp"
+                 android:layout_height="50dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginTop="10dp"
+                 android:contentDescription="@null"
+                 android:visibility="gone" />
+
+             <TextView
+                 android:id="@+id/linkTextView"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                 android:layout_centerVertical="true"
+                 android:layout_marginRight="5dp"
+                 android:background="@color/dark_grey"
+                 android:padding="5dp"
+                 android:textColor="@color/black"
+                 android:visibility="gone" />-->
+            <TextView
+                android:id="@+id/handsOnTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/surveyTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/handsOnAbbreviationTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/handsOnTitleTextView"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="5dp"
+                android:gravity="left|center_vertical"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/desc_text_size" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_below="@id/handsOnAbbreviationTextView" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

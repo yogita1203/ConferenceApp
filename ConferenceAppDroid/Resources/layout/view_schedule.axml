@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:animateLayoutChanges="true">
+    <RelativeLayout
+        android:id="@+id/session_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/search_bg"
+        android:layout_alignParentTop="true"
+        android:visibility="gone">
+        <Button
+            android:id="@+id/session_search_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="7dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/search_large"
+            android:visibility="visible" />
+        <Button
+            android:id="@+id/session_search_cancel_container_btn"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/session_search_cancel_container_btn_bg_color"
+            android:text="@string/cancel_text"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/session_search_cancel_container_btn_text_color"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="35dp" />
+        <Button
+            android:id="@+id/session_search_cancel_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toLeftOf="@id/session_search_cancel_container_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_delete_recipient"
+            android:visibility="gone" />
+        <EditText
+            android:id="@+id/session_day_search_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/session_search_btn"
+            android:layout_toLeftOf="@id/session_search_cancel_btn"
+            android:textColor="@color/session_day_search_edit_text"
+            android:textCursorDrawable="@drawable/bg_white_cursor"
+            android:hint="@string/search_text"
+            android:background="@android:color/transparent"
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
+    </RelativeLayout>
+    <conferenceappdroid.customcontrols.SlidingTabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/session_search_container" />
+    <conferenceappdroid.customcontrols.CustomViewPagerWithNoScroll
+        android:id="@+id/sessionDaysViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sliding_tabs"
+        android:background="@android:color/white" />
+ 
+</RelativeLayout>

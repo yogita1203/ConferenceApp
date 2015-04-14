@@ -1,0 +1,472 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using CommonLayer;
+using ConferenceAppDroid.Utilities;
+using SQLiteNetExtensions.Extensions;
+using CommonLayer.Entities.Built;
+using Android.Util;
+using System.Threading.Tasks;
+
+namespace ConferenceAppDroid.Fragments
+{
+    public class SessionDetailFragment : Android.Support.V4.App.Fragment
+    {
+        TextView sessionDisplayNameTextView;
+        TextView locationAndTimeTextView;
+        TextView sessionTimeTextView;
+        TextView session_detail_track_color;
+        TextView sessionDescriptionTextView;
+        ImageView scheduleImageView;
+        TextView session_detail_add_to_schedule_tv_label;
+        ImageView scheduleAddedImageView;
+        TextView session_detail_added_to_schedule_tv_label;
+
+        TextView sessionDetail_textview_id;
+        TextView sessionDetail_textview_value;
+        TextView sessionDetail_twitter_hash_tag_id;
+        TextView sessionDetail_twitter_hash_tag_value;
+        TextView sessionDetail_trackTextView_id;
+        TextView sessionDetail_trackTextView_value;
+        TextView sessionDetail_subTrackSectionTextView_id;
+        LinearLayout sessionDetail_subtrack_container_value;
+        TextView sessionDetail_technical_level_id;
+        TextView sessionDetail_technical_level_value;
+       
+
+        LinearLayout sessionDetail_market_segment_container;
+        TextView sessionDetail_market_segment_id;
+        TextView sessionDetail_market_segment_value;
+        TextView competency_textview_id;
+        TextView competency_textview_value;
+        LinearLayout sessionDetail_compatancy_container;
+        TextView sessionDetail_product_n_topic_id;
+        TextView sessionDetail_product_n_topic_value;
+        TextView sessionDetail_audience_container_id;
+        LinearLayout sessionDetail_audience_container_value;
+        TextView sessionDetail_session_type_id;
+        TextView sessionDetail_session_type_value;
+        TextView sessionDetail_role_id;
+        TextView sessionDetail_roleNameTextView_value;
+        LinearLayout sessionDetail_role_container;
+        TextView sessionDetail_industry_id;
+        TextView sessionDetail_industryTextView_value;
+        TextView sessionDetail_skilllevel_id;
+        LinearLayout sessionDetail_skilllevel_container;
+        TextView sessionDetails_speakerSectionTextView;
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.view_header_session_detail_screen, null);
+            sessionDisplayNameTextView = view.FindViewById<TextView>(Resource.Id.sessionDisplayNameTextView);
+
+            locationAndTimeTextView = view.FindViewById<TextView>(Resource.Id.locationAndTimeTextView);
+
+            sessionTimeTextView = view.FindViewById<TextView>(Resource.Id.sessionTimeTextView);
+
+            session_detail_track_color = view.FindViewById<TextView>(Resource.Id.session_detail_track_color);
+
+            sessionDescriptionTextView = view.FindViewById<TextView>(Resource.Id.sessionDescriptionTextView);
+            scheduleImageView = view.FindViewById<ImageView>(Resource.Id.scheduleImageView);
+
+            session_detail_add_to_schedule_tv_label = view.FindViewById<TextView>(Resource.Id.session_detail_add_to_schedule_tv_label);
+            scheduleAddedImageView = view.FindViewById<ImageView>(Resource.Id.scheduleAddedImageView);
+            session_detail_added_to_schedule_tv_label = view.FindViewById<TextView>(Resource.Id.session_detail_added_to_schedule_tv_label);
+
+            #region--ID--
+            sessionDetail_textview_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_textview_id);
+            sessionDetail_textview_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_textview_value);
+            #endregion
+
+            #region--hastag--
+            sessionDetail_twitter_hash_tag_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_twitter_hash_tag_id);
+            sessionDetail_twitter_hash_tag_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_twitter_hash_tag_value);
+            #endregion
+
+            #region--track--
+            sessionDetail_trackTextView_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_trackTextView_id);
+            sessionDetail_trackTextView_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_trackTextView_value);
+            #endregion
+
+            sessionDetail_subTrackSectionTextView_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_subTrackSectionTextView_id);
+            sessionDetail_subtrack_container_value = view.FindViewById<LinearLayout>(Resource.Id.sessionDetail_subtrack_container_value);
+
+            sessionDetail_technical_level_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_technical_level_id);
+            sessionDetail_technical_level_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_technical_level_value);
+            
+            sessionDetail_market_segment_container = view.FindViewById<LinearLayout>(Resource.Id.sessionDetail_market_segment_container);
+            sessionDetail_market_segment_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_market_segment_id);
+            sessionDetail_market_segment_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_market_segment_value);
+       
+            competency_textview_id = view.FindViewById<TextView>(Resource.Id.competency_textview_id);
+            competency_textview_value = view.FindViewById<TextView>(Resource.Id.competency_textview_value);
+            sessionDetail_compatancy_container = view.FindViewById<LinearLayout>(Resource.Id.sessionDetail_compatancy_container);
+            
+            sessionDetail_product_n_topic_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_product_n_topic_id);
+            sessionDetail_product_n_topic_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_product_n_topic_value);
+            
+            sessionDetail_audience_container_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_audience_container_id);
+            sessionDetail_audience_container_value = view.FindViewById<LinearLayout>(Resource.Id.sessionDetail_audience_container_value);
+           
+            sessionDetail_session_type_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_session_type_id);
+            sessionDetail_session_type_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_session_type_value);
+        
+            sessionDetail_role_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_role_id);
+            sessionDetail_roleNameTextView_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_roleNameTextView_value);
+            sessionDetail_role_container = view.FindViewById<LinearLayout>(Resource.Id.sessionDetail_role_container);
+         
+            sessionDetail_industry_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_industry_id);
+            sessionDetail_industryTextView_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_industryTextView_value);
+            
+            sessionDetail_skilllevel_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_skilllevel_id);
+            sessionDetail_skilllevel_container = view.FindViewById<LinearLayout>(Resource.Id.sessionDetail_skilllevel_container);
+
+            sessionDetails_speakerSectionTextView = view.FindViewById<TextView>(Resource.Id.sessionDetails_speakerSectionTextView);
+
+            DataManager.GetSessionTimeFromSessionIds(DBHelper.Instance.Connection, new List<string> { "4581" }).ContinueWith(t => 
+            {
+                var currentSession = t.Result.FirstOrDefault();
+                 builtTrackAll((res) => 
+                {
+                    var tracksList = res;
+                    if (currentSession.BuiltSession.track == "" || currentSession.BuiltSession.track == null)
+                    {
+                        currentSession.BuiltSession.track = "No Track";
+                    }
+                  var  builtTrack = tracksList.FirstOrDefault(p => p.name.ToLower() == currentSession.BuiltSession.track.ToLower());
+                    Activity.RunOnUiThread(() => 
+                    {
+                        setHeader(currentSession, builtTrack);
+                    });
+                });
+            });
+
+            return view;
+        }
+
+        void setHeader(BuiltSessionTime currentSession,BuiltTracks builtTracks)
+        {
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.title))
+            {
+                sessionDisplayNameTextView.Visibility = ViewStates.Visible;
+                sessionDisplayNameTextView.Text = currentSession.BuiltSession.title;
+            }
+
+            if (!string.IsNullOrWhiteSpace(currentSession.room))
+            {
+                locationAndTimeTextView.Visibility = ViewStates.Visible;
+                locationAndTimeTextView.Text = currentSession.room;
+            }
+
+            if (currentSession.date != null && currentSession.date.Length > 0)
+            {
+                sessionTimeTextView.Visibility = ViewStates.Visible;
+                sessionTimeTextView.Text = currentSession.date;
+            }
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession._abstract))
+            {
+                sessionDescriptionTextView.Visibility = ViewStates.Visible;
+                sessionDescriptionTextView.Text = currentSession.BuiltSession._abstract;
+            }
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.abbreviation))
+            {
+                sessionDetail_textview_id.Visibility = ViewStates.Visible;
+                sessionDetail_textview_value.Visibility = ViewStates.Visible;
+                sessionDetail_textview_value.Text = currentSession.BuiltSession.abbreviation;
+            }
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.abbreviation))
+            {
+                sessionDetail_twitter_hash_tag_id.Visibility = ViewStates.Visible;
+                sessionDetail_twitter_hash_tag_value.Visibility = ViewStates.Visible;
+                sessionDetail_twitter_hash_tag_value.Text = string.Concat(new List<string> { "#", currentSession.BuiltSession.abbreviation });
+            }
+
+            if (!String.IsNullOrWhiteSpace(currentSession.BuiltSession.track))
+            {
+                sessionDetail_trackTextView_id.Visibility = ViewStates.Visible;
+                sessionDetail_trackTextView_value.Visibility = ViewStates.Visible;
+                sessionDetail_trackTextView_value.Text = currentSession.BuiltSession.track;
+            }
+
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.technical_level))
+            {
+                sessionDetail_technical_level_id.Visibility = ViewStates.Visible;
+                sessionDetail_technical_level_value.Visibility = ViewStates.Visible;
+                sessionDetail_technical_level_value.Text = currentSession.BuiltSession.technical_level;
+
+            }
+            //if (builtTracks != null)
+            //{
+            //    session_detail_track_color.Visibility = ViewStates.Visible;
+            //    session_detail_track_color.SetTextColor(Android.Graphics.Color.ParseColor(builtTracks.color));
+            //}
+            #region--marketsegment--
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.market_segment_separated))
+            {
+                var marketSegment = currentSession.BuiltSession.market_segment_separated;
+                sessionDetail_market_segment_id.Visibility = ViewStates.Visible;
+                sessionDetail_market_segment_container.Visibility = ViewStates.Visible;
+                if (sessionDetail_market_segment_container.ChildCount > 0)
+                {
+                    sessionDetail_market_segment_container.RemoveAllViews();
+                }
+
+                if (marketSegment.Contains(","))
+                {
+                    string[] values = marketSegment.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                        textView.Text = values[i].Trim();
+                        if (i == values.Length - 1)
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.bg_white);
+                        }
+                        else
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.layerlist_bottom_grey_line);
+                            textView.SetPadding(dpToPx(Activity, 15), dpToPx(Activity, 10), dpToPx(Activity, 15), dpToPx(Activity, 10));
+                        }
+
+                        sessionDetail_market_segment_container.AddView(textView);
+                    }
+                }
+                else
+                {
+                    TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                    textView.Text = currentSession.BuiltSession.market_segment_separated.Trim();
+                    sessionDetail_market_segment_container.AddView(textView);
+                }
+            }
+            #endregion
+
+            #region--subtrack--
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.sub_track_separated))
+            {
+                var subTrack = currentSession.BuiltSession.sub_track_separated;
+                sessionDetail_subTrackSectionTextView_id.Visibility = ViewStates.Visible;
+                sessionDetail_subtrack_container_value.Visibility = ViewStates.Visible;
+                if (sessionDetail_subtrack_container_value.ChildCount > 0)
+                {
+                    sessionDetail_subtrack_container_value.RemoveAllViews();
+                }
+
+                if (subTrack.Contains(","))
+                {
+                    string[] values = subTrack.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                        textView.Text = values[i].Trim();
+                        if (i == values.Length - 1)
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.bg_white);
+                        }
+                        else
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.layerlist_bottom_grey_line);
+                            textView.SetPadding(dpToPx(Activity, 15), dpToPx(Activity, 10), dpToPx(Activity, 15), dpToPx(Activity, 10));
+                        }
+
+                        sessionDetail_subtrack_container_value.AddView(textView);
+                    }
+                }
+                else
+                {
+                    TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                    textView.Text = currentSession.BuiltSession.sub_track_separated.Trim();
+                    sessionDetail_subtrack_container_value.AddView(textView);
+                }
+            }
+            #endregion
+
+            #region--competency--
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.competency_separated))
+            {
+                var competency = currentSession.BuiltSession.competency_separated;
+                competency_textview_id.Visibility = ViewStates.Visible;
+                sessionDetail_compatancy_container.Visibility = ViewStates.Visible;
+                if (sessionDetail_compatancy_container.ChildCount > 0)
+                {
+                    sessionDetail_compatancy_container.RemoveAllViews();
+                }
+
+                if (competency.Contains(","))
+                {
+                    string[] values = competency.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                        textView.Text = values[i].Trim();
+                        if (i == values.Length - 1)
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.bg_white);
+                        }
+                        else
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.layerlist_bottom_grey_line);
+                            textView.SetPadding(dpToPx(Activity, 15), dpToPx(Activity, 10), dpToPx(Activity, 15), dpToPx(Activity, 10));
+                        }
+
+                        sessionDetail_compatancy_container.AddView(textView);
+                    }
+                }
+                else
+                {
+                    TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                    textView.Text = currentSession.BuiltSession.competency_separated.Trim();
+                    sessionDetail_compatancy_container.AddView(textView);
+                }
+            }
+            #endregion
+
+            #region--audience--
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.audience_separated))
+            {
+                var audience = currentSession.BuiltSession.audience_separated;
+                sessionDetail_audience_container_id.Visibility = ViewStates.Visible;
+                sessionDetail_audience_container_value.Visibility = ViewStates.Visible;
+                if (sessionDetail_audience_container_value.ChildCount > 0)
+                {
+                    sessionDetail_audience_container_value.RemoveAllViews();
+                }
+
+                if (audience.Contains(","))
+                {
+                    string[] values = audience.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                        textView.Text = values[i].Trim();
+                        if (i == values.Length - 1)
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.bg_white);
+                        }
+                        else
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.layerlist_bottom_grey_line);
+                            textView.SetPadding(dpToPx(Activity, 15), dpToPx(Activity, 10), dpToPx(Activity, 15), dpToPx(Activity, 10));
+                        }
+
+                        sessionDetail_audience_container_value.AddView(textView);
+                    }
+                }
+                else
+                {
+                    TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                    textView.Text = currentSession.BuiltSession.audience_separated.Trim();
+                    sessionDetail_audience_container_value.AddView(textView);
+                }
+            }
+            #endregion
+
+            #region--role--
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.role_separated))
+            {
+                var role = currentSession.BuiltSession.role_separated;
+                sessionDetail_role_id.Visibility = ViewStates.Visible;
+                sessionDetail_role_container.Visibility = ViewStates.Visible;
+                if (sessionDetail_role_container.ChildCount > 0)
+                {
+                    sessionDetail_role_container.RemoveAllViews();
+                }
+
+                if (role.Contains(","))
+                {
+                    string[] values = role.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                        textView.Text = values[i].Trim();
+                        if (i == values.Length - 1)
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.bg_white);
+                        }
+                        else
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.layerlist_bottom_grey_line);
+                            textView.SetPadding(dpToPx(Activity, 15), dpToPx(Activity, 10), dpToPx(Activity, 15), dpToPx(Activity, 10));
+                        }
+
+                        sessionDetail_role_container.AddView(textView);
+                    }
+                }
+                else
+                {
+                    TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                    textView.Text = currentSession.BuiltSession.role_separated.Trim();
+                    sessionDetail_role_container.AddView(textView);
+                }
+            }
+            #endregion
+
+            #region--skilllevel--
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.skill_level_separated))
+            {
+                var skill = currentSession.BuiltSession.skill_level_separated;
+                sessionDetail_skilllevel_id.Visibility = ViewStates.Visible;
+                sessionDetail_skilllevel_container.Visibility = ViewStates.Visible;
+                if (sessionDetail_skilllevel_container.ChildCount > 0)
+                {
+                    sessionDetail_skilllevel_container.RemoveAllViews();
+                }
+
+                if (skill.Contains(","))
+                {
+                    string[] values = skill.Split(',');
+                    for (int i = 0; i < values.Length; i++)
+                    {
+                        TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                        textView.Text = values[i].Trim();
+                        if (i == values.Length - 1)
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.bg_white);
+                        }
+                        else
+                        {
+                            textView.SetBackgroundResource(Resource.Drawable.layerlist_bottom_grey_line);
+                            textView.SetPadding(dpToPx(Activity, 15), dpToPx(Activity, 10), dpToPx(Activity, 15), dpToPx(Activity, 10));
+                        }
+
+                        sessionDetail_skilllevel_container.AddView(textView);
+                    }
+                }
+                else
+                {
+                    TextView textView = (TextView)LayoutInflater.From(Activity).Inflate(Resource.Layout.tv_session_deails_value, null);
+                    textView.Text = currentSession.BuiltSession.skill_level_separated.Trim();
+                    sessionDetail_skilllevel_container.AddView(textView);
+                }
+            }
+            #endregion
+        }
+
+        public static int dpToPx(Context context, int dp)
+        {
+            int px = (int)TypedValue.ApplyDimension(ComplexUnitType.Dip, dp, context.Resources.DisplayMetrics);
+            return px;
+        }
+        private void builtTrackAll(Action<List<BuiltTracks>> callback)
+        {
+            DataManager.GetListOfAllTrack(DBHelper.Instance.Connection).ContinueWith(t =>
+            {
+                var result = t.Result;
+                if (callback != null)
+                    try
+                    {
+                        callback(result);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+            });
+        }
+    }
+}

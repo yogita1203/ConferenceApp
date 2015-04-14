@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/speaker_detail_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:scrollHorizontally="true"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/speaker_detail_company_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/speaker_detail_name_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_description"
+        android:textSize="@dimen/desc_text_size"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/speaker_detail_desgination_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/speaker_detail_company_name_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/text_description"
+        android:textSize="@dimen/desc_text_size"
+        android:textStyle="normal" />
+    <View
+        android:id="@+id/speakerDetailLine"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/speaker_detail_desgination_tv"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/text_menu_datetime" />
+    <TextView
+        android:id="@+id/speaker_detail_description_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/speakerDetailLine"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/desc_text_size"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/speaker_detail_session_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/speaker_detail_description_tv"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/layerlist_section_bg_new_design"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="@string/sessions_text"
+        android:textColor="@color/text_section_title"
+        android:textSize="@dimen/section_text_size"
+        android:textStyle="bold" />
+</RelativeLayout>

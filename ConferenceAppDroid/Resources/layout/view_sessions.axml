@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/session_bottom_tabs_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false"
+        android:background="@drawable/layerlist_bottom_session_new_design"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/schedule_tab_btn_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/schedule_tab_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/selector_tab_schedule"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/speakers_tab_btn_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null">
+            <ImageView
+                android:id="@+id/speakers_tab_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/selector_tab_speakers"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/sessionFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/session_bottom_tabs_container" />
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DefaultTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:homeAsUpIndicator">@drawable/new_indicator</item>
+    </style>
+
+  <style name="DialogAnimation">
+    <item name="android:windowEnterAnimation">@anim/slide_up</item>
+    <item name="android:windowExitAnimation">@anim/slide_down</item>
+  </style>
+</resources>

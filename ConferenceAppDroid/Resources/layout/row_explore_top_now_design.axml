@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/dropshadow"
+    android:padding="10dp">
+    <RelativeLayout
+        android:id="@+id/now_next_parent_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/white">
+        <RelativeLayout
+            android:id="@+id/explore_top_now_session_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/explore_top_now_session_title_tv"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:singleLine="true"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/explore_top_now_title_color" />
+            <TextView
+                android:id="@+id/explore_top_now_session_room_tv"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/explore_top_now_session_title_tv"
+                android:gravity="left"
+                android:singleLine="true"
+                android:textSize="@dimen/desc_text_size"
+                android:textStyle="normal"
+                android:textColor="@color/explore_top_now_text_color" />
+            <TextView
+                android:id="@+id/explore_top_now_session_time_tv"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/explore_top_now_session_room_tv"
+                android:gravity="left"
+                android:singleLine="true"
+                android:textSize="@dimen/desc_text_size"
+                android:textStyle="normal"
+                android:textColor="@color/explore_top_now_text_color" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/now_next_track_color"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:minHeight="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@id/now_next_parent_container"
+        android:layout_alignBottom="@id/now_next_parent_container"
+        tools:ignore="ContentDescription" />
+</RelativeLayout>

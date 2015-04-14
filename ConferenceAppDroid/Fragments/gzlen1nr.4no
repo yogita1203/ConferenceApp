@@ -1,0 +1,34 @@
+﻿using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Support.V4.App;
+using Android.Views;
+using Android.Widget;
+using ConferenceAppDroid.CustomControls;
+using Java.Lang;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConferenceAppDroid.Fragments
+{
+    public class FoodNDrink : Android.Support.V4.App.Fragment
+    {
+        RadioGroup radioGroup;
+        public override Android.Views.View OnCreateView(Android.Views.LayoutInflater inflater, Android.Views.ViewGroup container, Android.OS.Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.FoodNDrinkLayout, null);
+            radioGroup=view.FindViewById<RadioGroup>(Resource.Id.notesGroup);
+            radioGroup.CheckedChange += radioGroup_CheckedChange;
+            return view;
+        }
+
+        
+
+        void radioGroup_CheckedChange(object sender, RadioGroup.CheckedChangeEventArgs e)
+        {
+not
+        }
+    }
+}

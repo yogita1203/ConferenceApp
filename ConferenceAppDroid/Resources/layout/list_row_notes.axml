@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:padding="5dp"
+        android:textColor="@color/pgrey"
+        android:textSize="@dimen/datetime_text_size"
+        android:textStyle="normal"
+        android:layout_marginTop="8dp"
+        android:visibility="visible" />
+    <TextView
+        android:id="@+id/notesTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_toLeftOf="@id/dateTextView"
+        android:gravity="left"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/notesContentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notesTitleTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:maxLines="2"
+        android:textColor="@color/text_description"
+        android:paddingTop="3dp"
+        android:textSize="@dimen/desc_text_size"
+        android:textStyle="normal" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@id/notesContentTextView" />
+</RelativeLayout>

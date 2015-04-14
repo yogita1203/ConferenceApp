@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/user_container"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:background="@color/login_container_background">
+    <TextView
+        android:id="@+id/sync_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/black"
+        android:text="@string/fa_refresh"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/setting_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@id/sync_icon"
+        android:textColor="@android:color/black"
+        android:text="@string/fa_gear"
+        android:textSize="25sp" />
+    <ImageView
+        android:id="@+id/notification_received_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/setting_icon"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/notification_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:layout_toLeftOf="@id/setting_icon"
+        android:textColor="@android:color/black"
+        android:text="@string/fa_bell_o"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/notificationCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/notification_icon"
+        android:textColor="@color/white" />
+    <ImageView
+        android:id="@+id/user_dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_unknown"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/user_displayname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/notification_icon"
+        android:layout_toRightOf="@id/user_dp"
+        android:singleLine="true"
+        android:text="@string/login_text"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold" />
+</RelativeLayout>

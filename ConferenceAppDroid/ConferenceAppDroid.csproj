@@ -1,0 +1,763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{BD401414-5142-4959-B060-5A063A270E6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ConferenceAppDroid</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidUseLatestPlatformSdk>
+    </AndroidUseLatestPlatformSdk>
+    <AssemblyName>ConferenceAppDroid</AssemblyName>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkSkip />
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <JavaMaximumHeapSize />
+    <JavaOptions />
+    <MonoDroidExtraArgs />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Built.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonLayer\Libs\Built.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Cheesebaron.HorizontalListView">
+      <HintPath>..\CommonLayer\Libs\Cheesebaron.HorizontalListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\CommonLayer\Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotoViewBindings">
+      <HintPath>..\CommonLayer\Libs\PhotoViewBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="SlidingMenuSharp">
+      <HintPath>..\..\..\17-02-15\conferenceapp-xamarin\CommonLayer\Libs\SlidingMenuSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>..\CommonLayer\Libs\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>..\CommonLayer\Libs\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinAndroid">
+      <HintPath>..\CommonLayer\Libs\SQLite.Net.Platform.XamarinAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>..\CommonLayer\Libs\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="stickygridheader-lib">
+      <HintPath>C:\Users\Amey\Downloads\Xamarin.PhotoView-master\Xamarin.PhotoView-master\PhotoViewBindings\stickygridheader-lib\bin\Debug\stickygridheader-lib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Twitter4J.Binding">
+      <HintPath>..\CommonLayer\Libs\Twitter4J.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="UrlImageViewHelper">
+      <HintPath>..\CommonLayer\Libs\UrlImageViewHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\..\..\17-02-15\conferenceapp-xamarin\CommonLayer\Libs\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities\SpeakerDetailActivity.cs" />
+    <Compile Include="Activities\SponsorsDetail.cs" />
+    <Compile Include="Activities\TwitterLoginActivity.cs" />
+    <Compile Include="Adapters\IHasLabel.cs" />
+    <Compile Include="Adapters\ListItemCollection.cs" />
+    <Compile Include="Adapters\ListItemSessionValue.cs" />
+    <Compile Include="Adapters\ListItemSpeakerValue.cs" />
+    <Compile Include="Adapters\ListItemTransportationValue.cs" />
+    <Compile Include="Adapters\ListItemValue.cs" />
+    <Compile Include="Adapters\SeparatedListAdapter.cs" />
+    <Compile Include="async\TweetActionAsync.cs" />
+    <Compile Include="BroadcastReceivers\BackgroundUpdatesStartReceiver.cs" />
+    <Compile Include="BroadcastReceivers\ConfigCompletedReceiver.cs" />
+    <Compile Include="BroadcastReceivers\DeltaCompletedReceiver.cs" />
+    <Compile Include="BroadcastReceivers\DeltaStartedReceiver.cs" />
+    <Compile Include="BroadcastReceivers\ExploreTrackReceiver.cs" />
+    <Compile Include="BroadcastReceivers\InterestReceiver.cs" />
+    <Compile Include="BroadcastReceivers\LoginReceivers.cs" />
+    <Compile Include="BroadcastReceivers\MenuChangeReceiver.cs" />
+    <Compile Include="BroadcastReceivers\NotesReceiver.cs" />
+    <Compile Include="BroadcastReceivers\SelfieImageDoneBroadCast.cs" />
+    <Compile Include="BroadcastReceivers\UpdateSessionsReceiver.cs" />
+    <None Include="Camera\CameraSelfieActivity.cs" />
+    <None Include="Camera\CameraSelfieFragment.cs" />
+    <Compile Include="Camera\DisplayActivity.cs" />
+    <Compile Include="Core\BaseActivity.cs" />
+    <Compile Include="Core\PullToRefreshListView.cs" />
+    <Compile Include="CustomControls\CustomViewPagerWithNoScroll.cs" />
+    <Compile Include="CustomControls\NonSwipeableViewPager .cs" />
+    <Compile Include="CustomControls\SegmentedControlButton.cs" />
+    <Compile Include="CustomControls\SlidingTabLayout.cs" />
+    <Compile Include="CustomControls\SlidingTabStrip.cs" />
+    <Compile Include="Activities\DailyHighlightsDetailsActivity.cs" />
+    <Compile Include="Fragments\Agenda.cs" />
+    <Compile Include="Fragments\DailyHighlights.cs" />
+    <Compile Include="Fragments\FilterDialogFragment.cs" />
+    <Compile Include="Fragments\FoodNDrink.cs" />
+    <Compile Include="Fragments\HandsOnLabsFragment.cs" />
+    <Compile Include="Fragments\ImportantLinksFragment.cs" />
+    <Compile Include="Fragments\LeftMenuFragment.cs" />
+    <Compile Include="Fragments\MyInterestSessionFragment.cs" />
+    <Compile Include="Fragments\MyNotes.cs" />
+    <Compile Include="Fragments\MyScheduleFragment.cs" />
+    <Compile Include="Fragments\ProgramsFaq.cs" />
+    <Compile Include="Fragments\SanFrancisco.cs" />
+    <Compile Include="Fragments\ScheduleInterest.cs" />
+    <Compile Include="Fragments\Session.cs" />
+    <Compile Include="Fragments\SessionDetailFragment.cs" />
+    <Compile Include="Fragments\SessionsNSpeakers.cs" />
+    <Compile Include="Fragments\SocialAllFeedsFragment.cs" />
+    <Compile Include="Fragments\SocialFragment.cs" />
+    <Compile Include="Fragments\SocialTweetDialogFragment.cs" />
+    <Compile Include="Fragments\Speaker.cs" />
+    <Compile Include="Fragments\SpeakerDetailFragment.cs" />
+    <Compile Include="Fragments\SponsorByContribution.cs" />
+    <Compile Include="Fragments\SponsorDetailFragment.cs" />
+    <Compile Include="Fragments\SponsorsFragment.cs" />
+    <Compile Include="Fragments\SurveysFragment.cs" />
+    <Compile Include="Fragments\Transportation.cs" />
+    <Compile Include="Fragments\UITradeMarkAndCopyRight.cs" />
+    <Compile Include="Fragments\Venue.cs" />
+    <Compile Include="Fragments\whatsHappenning.cs" />
+    <Compile Include="Activities\HandsOnLabsActivity.cs" />
+    <Compile Include="Activities\HandsOnLabsDetailActivity.cs" />
+    <Compile Include="Activities\ImagePreviewActivity.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Interfaces\IGetTweetStatusObject.cs" />
+    <Compile Include="Interfaces\ILoadFragment.cs" />
+    <Compile Include="MainApplication.cs" />
+    <Compile Include="MenuFragment.cs" />
+    <Compile Include="Activities\NotesDetail.cs" />
+    <Compile Include="Activities\NotificationActivity.cs" />
+    <Compile Include="Fragments\SocialMoreActionDialogFragment.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <AndroidResource Include="Resources\layout\activity_splash_screen.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_left_drawer.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_login_continer_left_side_menu.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_left_drawer.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_login.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidAsset Include="Assets\config.ini" />
+    <AndroidResource Include="Resources\layout\fragment_my_survey_completed.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\survey_row.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_list.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\loading_gamification.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\prog_faq.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\faq_row.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <Compile Include="Activities\SettingsActivity.cs" />
+    <Compile Include="Activities\UIWebView.cs" />
+    <Compile Include="Activities\SessionDetail.cs" />
+    <Compile Include="Activities\SpeakerDetail.cs" />
+    <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Activities\UIWebViewForSurvey.cs" />
+    <Compile Include="Utilities\AppConstants.cs" />
+    <Compile Include="Utilities\AppSettings.cs" />
+    <Compile Include="Utilities\AppUtilities.cs" />
+    <Compile Include="Utilities\ColorExtension.cs" />
+    <AndroidResource Include="Resources\layout\activity_web_view.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_web_view_for_survey.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_settings.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_settings_list.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_important_link.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_important_link.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_my_notes.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\list_row_notes.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\agenda_row.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\header_agenda.axml" />
+    <AndroidResource Include="Resources\layout\screen_note_detail.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_selection_button.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_image_adapter.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_image_preview.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_left_menu_sync_info.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_explore_top_now_design.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_social.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_sponsors_by_contributors.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_sponsor_contribution_header.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\grid_row_sponsors_by_contribution.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_sponsors.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_terms_and_condition.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_sponsors_detail_pager_adapter.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_all_feeds.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_bottom_instagram_actions.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\allFeedsLayout.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\pull_to_refresh_header.axml" />
+    <AndroidResource Include="Resources\layout\pulltorefreshlist.axml" />
+    <AndroidResource Include="Resources\layout\view_loading_list.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_bottom_twitter_actions.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_bottom_twitter_post_action.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_twitter_login.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <Compile Include="Utilities\Prefs.cs" />
+    <Compile Include="Utilities\TwitterHelper.cs" />
+    <AndroidResource Include="Resources\layout\fragment_social_tweet_dialog_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_selfie_image_preview.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_twitter_reply_alert_box.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <None Include="Utilities\CustomLinkMovementMethod.cs" />
+    <Compile Include="Utilities\CountDown.cs" />
+    <Compile Include="Utilities\CustomWebChromeClient.cs" />
+    <Compile Include="Utilities\CustomWebViewClient.cs" />
+    <Compile Include="Utilities\Database.cs" />
+    <Compile Include="Utilities\ExploreHeaderComponent.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\SurveyCustomWebChromeClient.cs" />
+    <Compile Include="Utilities\SurveyCustomWebViewClient.cs" />
+    <Compile Include="Activities\VenueDetail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\vmworld_pex.db" />
+    <AndroidAsset Include="Assets\vmworld_pex_uat.db" />
+    <AndroidAsset Include="Assets\Fonts\FontAwesome.ttf" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <AndroidResource Include="Resources\drawable\layout1.axml" />
+    <AndroidResource Include="Resources\layout\header_menu.axml" />
+    <AndroidResource Include="Resources\layout\list_item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_moscone_center.axml" />
+    <AndroidResource Include="Resources\layout\DailyHighlightsLayout.axml" />
+    <AndroidResource Include="Resources\layout\faq_list_item.axml" />
+    <AndroidResource Include="Resources\layout\FoodNDrinkLayout.axml" />
+    <AndroidResource Include="Resources\layout\NewsCells.axml" />
+    <AndroidResource Include="Resources\layout\NewsDetails.axml" />
+    <AndroidResource Include="Resources\layout\speaker_row.axml" />
+    <AndroidResource Include="Resources\layout\speakerLayout.axml" />
+    <AndroidResource Include="Resources\layout\VenueCells.axml" />
+    <AndroidResource Include="Resources\layout\VenueLayout.axml" />
+    <AndroidResource Include="Resources\layout\transportationLayout.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_list_sf.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\sanfrancisco.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\scheduleAndInterest.axml" />
+    <AndroidResource Include="Resources\layout\view_my_schedule.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_my_interest.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\session_row.axml" />
+    <AndroidResource Include="Resources\layout\sessionLayout.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_header_session_detail_screen.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_session_detail_screen.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_session_detail_pager_adapter.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_schedule.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_session_day_top_header.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\temp.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_all_session.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_loading.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_actionbar.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_sessions.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_tracks_filter_dialog.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\row_tracks_session.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_speaker_details.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_speaker_detail_header.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_speakers_detail_pager_adapter.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_hands_on_labs_fragment.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\list_row_hands_on_labs.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_uihands_on_labs.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_hands_on_labs_detail.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\horizontal_list.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_header_explore_screen.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_horizontal_scroll_view.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_explore.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg_menu_row.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\new_indicator.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\shadow.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\shadowright.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\indicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\indicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\list_header.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\menu_frame.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\menu_list.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\menu_row.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-land\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-large\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-large-land\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-xlarge\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-xlarge-land\dimens.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLayer\CommonLayer.csproj">
+      <Project>{3c6ec041-6364-40e4-b9b7-d7bc2663abee}</Project>
+      <Name>CommonLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\ltr.xml" />
+    <AndroidResource Include="Resources\anim\none.xml" />
+    <AndroidResource Include="Resources\anim\slide_in_left.xml" />
+    <AndroidResource Include="Resources\anim\slide_in_right.xml.xml" />
+    <AndroidResource Include="Resources\drawable\background_rounded_corner_blue.xml" />
+    <AndroidResource Include="Resources\drawable\bg_repeat_blueish_white.xml" />
+    <AndroidResource Include="Resources\drawable\ic_default_pic.9.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\arrow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_location_place.png" />
+    <AndroidResource Include="Resources\drawable\search_large.png" />
+    <AndroidResource Include="Resources\drawable\ic_delete_recipient.png" />
+    <AndroidResource Include="Resources\drawable\bg_white_cursor.xml" />
+    <AndroidResource Include="Resources\drawable\layerlist_section_bg_new_design.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_schedule_row.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_interest.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_session.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_schedule_row.png" />
+    <AndroidResource Include="Resources\drawable\selector_create_note.xml" />
+    <AndroidResource Include="Resources\drawable\selector_delete_note.xml" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_new_compose_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_new_compose_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_content_discard_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_content_discard.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\arrow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\circle.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\favorite2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_1st.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_2cd.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_3rd.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_interest_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_all_feed_reply.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_all_feed_retweet.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_bkcamera_blue.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_bkcamera_gray.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_blue_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_blue_arrow_frwd.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_bottom.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_camera_orange_2x.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_camera_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_close_login.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_content_discard.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_content_discard_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_external_link_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_facebook.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_follow_text.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_follow_text_gray.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_gray_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_gray_arrow_frwd.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_instagram.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_instagram_comment.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_instagram_love.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_location_place.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_new_camera_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_new_compose_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_new_compose_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_new_note_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_new_note_menu_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_new_qr_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_notification_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_password.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_password_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_profile.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_profile_pic_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_scanner_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_screen_close.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_screen_close_hover.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_selfie.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_selfie_gray.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_setting.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_achievements_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_achievements_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_activity_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_activity_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_foodndrink_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_foodndrink_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_schedule_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_schedule_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_speakers_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_speakers_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_transportation_normal.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tab_transportation_selected.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tags_icon_blue.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_tags_icon_gray.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_twitter.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_up_arrow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\is_open_left_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\more.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\search_large.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\vmworld_logo_white.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\arrow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\circle.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\favorite2.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_1st.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_2cd.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_3rd.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_interest.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_interest_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_schedule_row.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_session.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_all_feed_reply.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_all_feed_retweet.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_bkcamera_blue.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_bkcamera_gray.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_blue_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_blue_arrow_frwd.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_camera_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_close_login.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_external_link_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_facebook.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_follow_text.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_follow_text_gray.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_gray_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_gray_arrow_frwd.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_instagram.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_instagram_comment.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_instagram_love.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_location_place.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_new_camera_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_new_note_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_new_note_menu_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_new_qr_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_notification.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_notification_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_password.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_password_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_profile.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_profile_pic_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_scanner_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_schedule_row.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_screen_close.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_screen_close_hover.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_selfie.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_selfie_gray.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_setting.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_achievements_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_achievements_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_activity_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_activity_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_foodndrink_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_foodndrink_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_schedule_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_schedule_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_speakers_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_speakers_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_transportation_normal.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tab_transportation_selected.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tags_icon_blue.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_tags_icon_gray.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_twitter.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_up_arrow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\is_open_left_menu.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\more.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\search_large.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\vmworld_logo_white.png" />
+    <AndroidResource Include="Resources\drawable\layerlist_explore_middle_label.xml" />
+    <AndroidResource Include="Resources\drawable\selector_tags_imageview.xml" />
+    <AndroidResource Include="Resources\layout\tv_session_deails_value.xml" />
+    <AndroidResource Include="Resources\drawable\layerlist_bottom_grey_line.xml" />
+    <AndroidResource Include="Resources\drawable\ic_back_arrow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\bg_app.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\bg_splash.jpg" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_navigation_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_navigation_back.png" />
+    <AndroidResource Include="Resources\anim\hold.xml" />
+    <AndroidResource Include="Resources\anim\up_from_bottom.xml" />
+    <AndroidResource Include="Resources\drawable\selector_tab_schedule.xml" />
+    <AndroidResource Include="Resources\drawable\selector_tab_speakers.xml" />
+    <AndroidResource Include="Resources\drawable\layerlist_bottom_session_new_design.xml" />
+    <AndroidResource Include="Resources\drawable\bg_selector_login_username_password.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\selector_tab_foodndrink.xml" />
+    <AndroidResource Include="Resources\drawable\selector_tab_transportation.xml" />
+    <AndroidResource Include="Resources\drawable\shape_login_screen.xml" />
+    <AndroidResource Include="Resources\drawable\shape_login_selected_textview.xml" />
+    <AndroidResource Include="Resources\drawable\shape_login_textview.xml" />
+    <AndroidResource Include="Resources\drawable\rounded_bg_tracks_view.xml" />
+    <AndroidResource Include="Resources\drawable\selector_tracks_row.xml" />
+    <AndroidResource Include="Resources\anim\slide_down.xml" />
+    <AndroidResource Include="Resources\anim\slide_up.xml" />
+    <AndroidResource Include="Resources\anim\pull_in_from_right.xml" />
+    <AndroidResource Include="Resources\drawable\selector_session_row.xml" />
+    <AndroidResource Include="Resources\drawable\shape_rectangle.xml" />
+    <AndroidResource Include="Resources\drawable\dropshadow_topbottom.9.png" />
+    <AndroidResource Include="Resources\drawable\vmworld_logo_black.png" />
+    <AndroidResource Include="Resources\drawable\splash_loading_drawable.xml" />
+    <AndroidResource Include="Resources\drawable\bg_checkbox_selection.xml" />
+    <AndroidResource Include="Resources\drawable\ic_checkbox.png" />
+    <AndroidResource Include="Resources\drawable\ic_checkbox_selected.png" />
+    <AndroidResource Include="Resources\drawable\ic_loading_splash.png" />
+    <AndroidResource Include="Resources\drawable-nodpi\bg_splash_01.jpg" />
+    <AndroidResource Include="Resources\drawable-nodpi\main_bg.jpg" />
+    <AndroidResource Include="Resources\drawable\bg_repeat_leftmenu_normal.xml" />
+    <AndroidResource Include="Resources\drawable\background_top_line.xml" />
+    <AndroidResource Include="Resources\drawable\ic_unknown.png" />
+    <AndroidResource Include="Resources\drawable\rounded_corner_pex_blue.xml" />
+    <AndroidResource Include="Resources\drawable\bg_blue_cursor.xml" />
+    <AndroidResource Include="Resources\drawable\selector_password.xml" />
+    <AndroidResource Include="Resources\drawable\selector_profile.xml" />
+    <AndroidResource Include="Resources\drawable\ic_vmworldapp_logo.png" />
+    <AndroidResource Include="Resources\anim\push_out_to_right.xml" />
+    <AndroidResource Include="Resources\drawable\selector_left_tab.xml" />
+    <AndroidResource Include="Resources\drawable\background_left_tab.xml" />
+    <AndroidResource Include="Resources\drawable\background_left_tab_selected.xml" />
+    <AndroidResource Include="Resources\drawable\close_icon_selector.xml" />
+    <AndroidResource Include="Resources\drawable\check.xml" />
+    <AndroidResource Include="Resources\drawable\switcher_toggle_on.png" />
+    <AndroidResource Include="Resources\drawable\switcher_off.png" />
+    <AndroidResource Include="Resources\layout\list.xml" />
+    <AndroidResource Include="Resources\drawable\bg_button.xml" />
+    <AndroidResource Include="Resources\drawable\selector_twitter.xml" />
+    <AndroidResource Include="Resources\drawable\shape_add_note.xml" />
+    <AndroidResource Include="Resources\drawable\ic_close_preview.png" />
+    <AndroidResource Include="Resources\drawable\ic_tag_close2x.png" />
+    <AndroidResource Include="Resources\anim\rotate.xml" />
+    <AndroidResource Include="Resources\drawable\dropshadow.9.png" />
+    <AndroidResource Include="Resources\drawable\shape_rectangle_sponsors_by_contribution.xml" />
+    <AndroidResource Include="Resources\anim\fadein.xml" />
+    <AndroidResource Include="Resources\drawable\bg_image_detailpage.xml" />
+    <AndroidResource Include="Resources\drawable\bg_shape_left_blue_tracks_disabled..xml" />
+    <AndroidResource Include="Resources\drawable\bg_shape_right_blue_tracks_disabled.xml" />
+    <AndroidResource Include="Resources\drawable\selector_left_blue_tracks_session_detail.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\selector_right_blue_tracks_session_detail.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bg_shape_left_blue_tracks_unselected..xml" />
+    <AndroidResource Include="Resources\drawable\bg_shape_left_blue_tracks_selected..xml" />
+    <AndroidResource Include="Resources\drawable\bg_shape_right_blue_tracks_unselected..xml" />
+    <AndroidResource Include="Resources\drawable\bg_shape_right_blue_tracks_selected..xml" />
+    <AndroidResource Include="Resources\anim\up_from_bottom_rev.xml" />
+    <AndroidResource Include="Resources\drawable\ic_video_play.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_pulltorefresh_arrow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_pulltorefresh_arrow.png" />
+    <AndroidResource Include="Resources\drawable\selector_camera.xml" />
+    <AndroidResource Include="Resources\drawable\selector_new_tweet.xml" />
+    <AndroidResource Include="Resources\drawable\selector_selfie.xml" />
+    <AndroidResource Include="Resources\drawable\twitter_reply_dialog_drawable.xml" />
+    <Content Include="Resources\values-land\values\colors.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+</Project>

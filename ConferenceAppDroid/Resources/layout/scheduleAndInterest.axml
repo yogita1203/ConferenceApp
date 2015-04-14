@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/notesGroup">
+        <conferenceappdroid.customcontrols.SegmentedControlButton
+            android:checked="true"
+            android:text="Schedule"
+            android:id="@+id/optionDate"
+            android:minHeight="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+        <conferenceappdroid.customcontrols.SegmentedControlButton
+            android:checked="false"
+            android:text="Interest"
+            android:id="@+id/optionTitle"
+            android:minHeight="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+    </RadioGroup>
+    <FrameLayout
+        android:id="@+id/my_schedule_fragment_container"
+        android:layout_below="@id/notesGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/theme_top_color" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontalLine"
+        android:orientation="horizontal"
+        android:paddingTop="5dp">
+        <TextView
+            android:drawableTop="@drawable/selector_selfie"
+            android:id="@+id/takeSelfieTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/social_all_feeds_take_selfie_text"
+            android:textSize="14sp"
+            android:visibility="visible" />
+        <TextView
+            android:drawableTop="@drawable/selector_camera"
+            android:id="@+id/cameraTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/social_all_feeds_camera_text"
+            android:textSize="14sp"
+            android:visibility="visible" />
+        <TextView
+            android:drawableTop="@drawable/selector_new_tweet"
+            android:id="@+id/newTweetTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/social_all_feeds_new_tweet_text"
+            android:textSize="14sp"
+            android:visibility="visible" />
+    </LinearLayout>
+</RelativeLayout>

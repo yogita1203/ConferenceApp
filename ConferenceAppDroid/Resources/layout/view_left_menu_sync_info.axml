@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sync_info_textview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right|center_horizontal"
+    android:textColor="@color/sync_info_text"
+    android:textSize="15sp"
+    android:layout_marginTop="10dp"
+    android:background="@color/left_menu_list_background"
+    android:paddingRight="5dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp" />

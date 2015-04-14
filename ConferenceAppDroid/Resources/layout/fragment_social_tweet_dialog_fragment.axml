@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp">
+    <TextView
+        android:id="@+id/socialTwitterReply_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:paddingLeft="5dp"
+        android:text="@string/cancel_text"
+        android:textColor="@color/text_title_blue"
+        android:textSize="@dimen/title_text_size" />
+    <TextView
+        android:id="@+id/twitterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/socialTwitterReply_char_count"
+        android:layout_toRightOf="@id/socialTwitterReply_cancel_button"
+        android:background="@null"
+        android:gravity="center_horizontal"
+        android:text="@string/twitter_camel_case"
+        android:textSize="@dimen/section_text_size"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/socialTwitterReply_tweet_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
+        android:paddingRight="5dp"
+        android:text="@string/social_post_text"
+        android:textColor="@color/text_title_blue"
+        android:textSize="@dimen/title_text_size" />
+    <TextView
+        android:id="@+id/socialTwitterReply_char_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/socialTwitterReply_tweet_button"
+        android:layout_marginBottom="15dp"
+        android:layout_toLeftOf="@id/socialTwitterReply_tweet_button"
+        android:text="140" />
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/twitterText"
+        android:layout_marginTop="15dp"
+        android:background="#C0C0C0" />
+    <RelativeLayout
+        android:id="@+id/socialTwitterReply_sender_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontalLine"
+        android:layout_margin="5dp">
+        <ImageView
+            android:id="@+id/socialTwitterReply_sender_imageview"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_unknown" />
+        <TextView
+            android:id="@+id/socialTwitterReply_sender_title_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/socialTwitterReply_sender_imageview"
+            android:text="asfsdfgfhg"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/socialTwitterReply_sender_handle_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/socialTwitterReply_sender_title_textview"
+            android:layout_toRightOf="@+id/socialTwitterReply_sender_imageview"
+            android:text="asfsdfgfhg" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/socialTwitterReply_tweet_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/socialTwitterReply_sender_container">
+        <LinearLayout
+            android:id="@+id/socialTwitterReply_image_container"
+            android:layout_width="110dp"
+            android:layout_height="120dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:paddingRight="10dp">
+            <ImageView
+                android:id="@+id/socialTwitterReply_image"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@null"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/socialTwitterReply_reply"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/horizontalLine"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/socialTwitterReply_image_container"
+            android:background="@null"
+            android:gravity="top"
+            android:textColor="@color/text_description"
+            android:textSize="@dimen/desc_text_size" />
+    </LinearLayout>
+    <View
+        android:id="@+id/horizontalLine_2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/socialTwitterReply_tweet_container"
+        android:layout_marginTop="15dp"
+        android:background="#C0C0C0" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontalLine_2"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/socialTwitterReply_selfie_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="selfie" />
+        <Button
+            android:id="@+id/socialTwitterReply_camera_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="camera" />
+        <Button
+            android:id="@+id/socialTwitterReply_gallery_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="gallery" />
+    </LinearLayout>
+</RelativeLayout>

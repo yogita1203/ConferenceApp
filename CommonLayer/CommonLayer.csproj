@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C6EC041-6364-40E4-B9B7-D7BC2663ABEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CommonLayer</RootNamespace>
+    <AssemblyName>CommonLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Built.iOS">
+      <HintPath>Libs\Built.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Polenter.SharpSerializer.Portable">
+      <HintPath>Libs\Polenter.SharpSerializer.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>Libs\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>Libs\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>Libs\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AnalyticsEventIds.cs" />
+    <Compile Include="ApiCalls.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="DataManagerFetch.cs" />
+    <Compile Include="DataManagerFilter.cs" />
+    <Compile Include="GlobalValues.cs" />
+    <Compile Include="Queries.cs" />
+    <Compile Include="STA_INIFile.cs" />
+    <Compile Include="Entities\Extension\AddRemoveSessionSuccess.cs" />
+    <Compile Include="Entities\Extension\MyInterestSessionExtension.cs" />
+    <Compile Include="Entities\Extension\MyScheduleExtension.cs" />
+    <Compile Include="Entities\Built\AllSocialModel.cs" />
+    <Compile Include="Entities\Built\BuiltAchievements.cs" />
+    <Compile Include="Entities\Built\BuiltACL.cs" />
+    <Compile Include="Entities\Built\BuiltActivity.cs" />
+    <Compile Include="Entities\Built\BuiltAgenda.cs" />
+    <Compile Include="Entities\Built\BuiltAgendaItem.cs" />
+    <Compile Include="Entities\Built\BuiltAllFeeds.cs" />
+    <Compile Include="Entities\Built\BuiltApplicationUser.cs" />
+    <Compile Include="Entities\Built\BuiltAppUser.cs" />
+    <Compile Include="Entities\Built\BuiltAppUserActivity.cs" />
+    <Compile Include="Entities\Built\BuiltAppUserSession.cs" />
+    <Compile Include="Entities\Built\BuiltAttendance.cs" />
+    <Compile Include="Entities\Built\BuiltConfig.cs" />
+    <Compile Include="Entities\Built\BuiltConfigImportantLinks.cs" />
+    <Compile Include="Entities\Built\BuiltConfigMenu.cs" />
+    <Compile Include="Entities\Built\BuiltConfigSocial.cs" />
+    <Compile Include="Entities\Built\BuiltConfigTwitter.cs" />
+    <Compile Include="Entities\Built\BuiltEventNotifications.cs" />
+    <Compile Include="Entities\Built\BuiltExhibitor.cs" />
+    <Compile Include="Entities\Built\BuiltExplore.cs" />
+    <Compile Include="Entities\Built\BuiltExtensionOutput.cs" />
+    <Compile Include="Entities\Built\BuiltGame.cs" />
+    <Compile Include="Entities\Built\BuiltHandsonLabs.cs" />
+    <Compile Include="Entities\Built\BuiltHandsOnLabsOld.cs" />
+    <Compile Include="Entities\Built\BuiltHOLCategoryOrder.cs" />
+    <Compile Include="Entities\Built\BuiltHOLCategoryOrderElement.cs" />
+    <Compile Include="Entities\Built\BuiltImpLinkOrdering.cs" />
+    <Compile Include="Entities\Built\BuiltImportantLinks.cs" />
+    <Compile Include="Entities\Built\BuiltInstallationData.cs" />
+    <Compile Include="Entities\Built\BuiltIntro.cs" />
+    <Compile Include="Entities\Built\BuiltLastActivity.cs" />
+    <Compile Include="Entities\Built\BuiltLeaderBoardResult.cs" />
+    <Compile Include="Entities\Built\BuiltLegal.cs" />
+    <Compile Include="Entities\Built\BuiltLink.cs" />
+    <Compile Include="Entities\Built\BuiltLoginExtension.cs" />
+    <Compile Include="Entities\Built\BuiltMeNotifications.cs" />
+    <Compile Include="Entities\Built\BuiltMenu.cs" />
+    <Compile Include="Entities\Built\BuiltMosconeCenter.cs" />
+    <Compile Include="Entities\Built\BuiltMyActivity.cs" />
+    <Compile Include="Entities\Built\BuiltNews.cs" />
+    <Compile Include="Entities\Built\BuiltNotes.cs" />
+    <Compile Include="Entities\Built\BuiltOrderingInfo.cs" />
+    <Compile Include="Entities\Built\BuiltOthers.cs" />
+    <Compile Include="Entities\Built\BuiltPendingActivity.cs" />
+    <Compile Include="Entities\Built\BuiltPopularSessions.cs" />
+    <Compile Include="Entities\Built\BuiltQr.cs" />
+    <Compile Include="Entities\Built\BuiltQRCodes.cs" />
+    <Compile Include="Entities\Built\BuiltRecommended.cs" />
+    <Compile Include="Entities\Built\BuiltRegcodes.cs" />
+    <Compile Include="Entities\Built\BuiltSchedule.cs" />
+    <Compile Include="Entities\Built\BuiltSection.cs" />
+    <Compile Include="Entities\Built\BuiltSectionItems.cs" />
+    <Compile Include="Entities\Built\BuiltSession.cs" />
+    <Compile Include="Entities\Built\BuiltSessionFile.cs" />
+    <Compile Include="Entities\Built\BuiltSessionSpeaker.cs" />
+    <Compile Include="Entities\Built\BuiltSessionTime.cs" />
+    <Compile Include="Entities\Built\BuiltSettingMenu.cs" />
+    <Compile Include="Entities\Built\BuiltSettingsMenu.cs" />
+    <Compile Include="Entities\Built\BuiltSFFoodNDrink.cs" />
+    <Compile Include="Entities\Built\BuiltSFTransportation.cs" />
+    <Compile Include="Entities\Built\BuiltSocial.cs" />
+    <Compile Include="Entities\Built\BuiltSocialFacebook.cs" />
+    <Compile Include="Entities\Built\BuiltSocialTwitter.cs" />
+    <Compile Include="Entities\Built\BuiltSpeaker.cs" />
+    <Compile Include="Entities\Built\BuiltSpeakerSession.cs" />
+    <Compile Include="Entities\Built\BuiltSponsors.cs" />
+    <Compile Include="Entities\Built\BuiltSurvey.cs" />
+    <Compile Include="Entities\Built\BuiltSync.cs" />
+    <Compile Include="Entities\Built\BuiltTaskItemMain.cs" />
+    <Compile Include="Entities\Built\BuiltTemp.cs" />
+    <Compile Include="Entities\Built\BuiltToggleInterest.cs" />
+    <Compile Include="Entities\Built\BuiltTracks.cs" />
+    <Compile Include="Entities\Built\BuiltTransportation.cs" />
+    <Compile Include="Entities\Built\BuiltTwitter.cs" />
+    <Compile Include="Entities\Built\BuiltVenue.cs" />
+    <Compile Include="Entities\Built\BuiltVmwareLoginAppUser.cs" />
+    <Compile Include="Entities\Built\MySessions.cs" />
+    <Compile Include="Entities\Built\SurveyExtension.cs" />
+    <Compile Include="Entities\Date.cs" />
+    <Compile Include="Entities\EventData.cs" />
+    <Compile Include="Entities\EventInfo.cs" />
+    <Compile Include="Entities\ID.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Libs\Alliance.Carousel.dll" />
+    <None Include="Libs\BTProgressHUD.dll" />
+    <None Include="Libs\Built.Android.dll" />
+    <None Include="Libs\Built.iOS.dll" />
+    <None Include="Libs\Built.WP.dll" />
+    <None Include="Libs\CommonLayer.dll" />
+    <None Include="Libs\Crittercism.iOS.dll" />
+    <None Include="Libs\FontAwesome.Xamarin.dll" />
+    <None Include="Libs\MBProgressHUD.dll" />
+    <None Include="Libs\Newtonsoft.Json.dll" />
+    <None Include="Libs\NSTokenView.dll" />
+    <None Include="Libs\Polenter.SharpSerializer.Portable.dll" />
+    <None Include="Libs\SDWebImage.dll" />
+    <None Include="Libs\SQLite.Net.Async.dll" />
+    <None Include="Libs\SQLite.Net.dll" />
+    <None Include="Libs\SQLite.Net.Platform.XamarinAndroid.dll" />
+    <None Include="Libs\SQLite.Net.Platform.XamarinIOS.dll" />
+    <None Include="Libs\SQLiteNetExtensions.dll" />
+    <None Include="Libs\MonoTouch.TTTAttributedLabel.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\PhotoViewBindings.dll" />
+    <Content Include="Libs\stickygridheader-lib.dll" />
+    <Content Include="Libs\Twitter4J.Binding.dll" />
+    <Content Include="Libs\UrlImageViewHelper.dll" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="menu_selected_color">#4d90fe</color>
+  <color name="menu_default_color">#ffffff</color>
+  <color name="black">#000000</color>
+  <color name="white">#ffffff</color>
+  <color name="red">#FC0307</color>
+  <color name="grey">#f2f2f2</color>
+  <color name="dark_grey">#D9DBD3</color>
+  <color name="darker_grey">#646464</color>
+
+  <color name="left_drawer_row_bg">#333333</color>
+  <color name="explore_top_label">#646464</color>
+  <color name="explore_middle_label">#686868</color>
+  <color name="tab_strib">#0000FF</color>
+  <color name="blue">#075FED</color>
+  <color name="gold">#B09907</color>
+  <color name="silver">#D1CFC5</color>
+  <color name="bronze">#5B391E</color>
+  <color name="pgrey">#CCCCCC</color>
+  <color name="light_blue">#E8EEFA</color>
+  <color name="tracks_filter_text_blue">#007aff</color>
+  <color name="tracks_filter_text_orange">#fd472b</color>
+  <color name="tracks_filter_row_default_drawable">#f7f7f7</color>
+  <color name="tracks_filter_row_pressed_drawable">#f2f2f2</color>
+
+  <color name="text_title_blue">#004ebc</color>
+  <color name="text_desc_light_gray">#404040</color>
+  <color name="text_menu_datetime">#ababab</color>
+  <color name="theme_bottom_color">#1a60c3</color>
+  <color name="theme_top_color">#004ebc</color>
+
+  <color name="text_description">#404040</color>
+
+  <color name="right_menu_item_text_color">#20c2ff</color>
+
+  <color name="text_section_title">#0D3C80</color>
+  <color name="light_text">#888888</color>
+
+  <color name="builtio_file_select_item_color">#e5e5e1</color>
+  <color name="transparent">@android:color/transparent</color>
+
+  <color name="login_container_background">#ff000000</color>
+  <color name="title_text_action_bar">#ffffffff</color>
+
+  <drawable name="session_track_color_drawable">#ffffff</drawable>
+
+  <color name="explore_list_background">#66333333</color>
+
+  <color name="theme_tab_color">#004eba</color>
+  <color name="recommended_session_text">#575757</color>
+  <color name="recommended_session_title_text">#134480</color>
+  <color name="left_menu_section_name_text">#454444</color>
+  <color name="left_menu_name_text">#656565</color>
+  <color name="create_note_save_text_pex">#bababa</color>
+
+  <color name="search_bg">#051d3f</color>
+  <color name="session_search_cancel_container_btn_text_color">#ffffff</color>
+  <color name="session_search_cancel_container_btn_bg_color">#0c3b7f</color>
+  <color name="session_day_search_edit_text">#ffffff</color>
+  <color name="search_cursor_color">#ffffff</color>
+
+  <color name="widget_status_bar_color">#E0E6EA</color>
+  <color name="widget_title_text_color">#656565</color>
+  <color name="widget_login_button_bg_color">#646464</color>
+  <color name="widget_login_button_text_color">#ffffff</color>
+  <color name="text_color">#4B4B4B</color>
+
+
+  <drawable name="bg_white">#ffffff</drawable>
+  <drawable name="bg_repeat_session">#dfe5e8</drawable>
+  <drawable name="bg_settings_menu">#e1e9f5</drawable>
+  <drawable name="layerlist_section_bg_new_design">#dfe5e8</drawable>
+
+
+  <color name="login_container_background">#ffffff</color>
+  <color name="title_text_action_bar">#0296d1</color>
+  <color name="explore_top_now_title_color">#134480</color>
+  <color name="explore_top_now_text_color">#4a4a4a</color>
+  <color name="explore_list_background">#dfe4e8</color>
+  <color name="sync_info_text">#1a5491</color>
+  <color name="sync_text_background">#42b846</color>
+  <!-- green -->
+  <color name="left_menu_list_background">#f2f2f2</color>
+
+  <color name="login_button_text">#33a3ff</color>
+  <color name="text_description">#404040</color>
+
+  <color name="app_colorPrimaryDark">#14417D</color>
+
+
+  <color name="search_bg">#D9DBD3</color>
+  <color name="session_search_cancel_container_btn_text_color">#ffffff</color>
+  <color name="session_search_cancel_container_btn_bg_color">#646464</color>
+  <color name="session_day_search_edit_text">#646464</color>
+  <color name="search_cursor_color">#646464</color>
+  <color name="text_section_title">#454444</color>
+
+
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_tracks_row">
+    <TextView
+        android:id="@+id/row_tracks_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/tracks_filter_text_blue"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:typeface="normal" />
+</RelativeLayout>

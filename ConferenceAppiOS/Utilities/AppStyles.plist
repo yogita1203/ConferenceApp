@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Secondary Font</key>
+	<string></string>
+	<key>Primary Color</key>
+	<string>#89cbdf</string>
+	<key>Secondary Color</key>
+	<string>#0095D3</string>
+	<key>Tertiary Color</key>
+	<string>#c2cd23</string>
+	<key>Primary Font</key>
+	<string></string>
+	<key>Layer 1 Color</key>
+	<string></string>
+	<key>Layer 1.1 Color</key>
+	<string></string>
+	<key>Layer 2 Color</key>
+	<string></string>
+	<key>Layer 3 Color</key>
+	<string></string>
+</dict>
+</plist>

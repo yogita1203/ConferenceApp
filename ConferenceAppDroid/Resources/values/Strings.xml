@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hello">Hello World, Click Me!</string>
+  <string name="settings_text">Settings</string>
+    <string name="ApplicationName">Conference-Android</string>
+  <string name="search_text">Search</string>
+  <string name="cancel_text"> Cancel </string>
+  <string name="track_name_text">Track Name</string>
+  <string name="sub_track_text">Select Sub-track</string>
+  <string name="sub_tracks_text">Sub Tracks</string>
+  <string name="no_internet_connection_text"> No internet connection.</string>
+  <string name="speaker_capital_name_text">%1$d Speaker</string>
+  <string name="skill_level_camel_case">Skill Level</string>
+  <string name="session_detail_twitter_hashtag">Twitter Hashtag</string>
+  <string name="session_detail_technical_level">Technical Level</string>
+  <string name="session_detail_session_type">Session Type</string>
+  <string name="session_detail_product_n_topic">Product and Topic</string>
+  <string name="session_detail_market_segment">Market Segment</string>
+  <string name="session_detail_id">ID</string>
+  <string name="session_detail_competency">Competency</string>
+  <string name="session_detail_audience">Audience</string>
+<string name="speaker_text">Speaker</string>
+  <string name="role_camel_case">Role</string>
+  <string name="industry_name_text">Industry Name</string>
+  <string name="my_survey_single">Survey</string>
+  <string name="beginner_text">Beginner</string>
+  <string name="advanced_text">Advanced</string>
+  <string name="added_to_schedule">In Schedule</string>
+  <string name="add_to_my_schedule">Add to My Schedule</string>
+  <string name="done_text">DONE</string>
+  <string name="session_text">Session</string>
+  <string name="please_wait">Please wait…</string>
+  <string name="clear_filter_text">Clear Filter</string>
+  <string name="sessions_text">%1$d Sessions</string>
+  <string name="duration">Duration</string>
+  <string name="capacity">Capacity</string>
+  <string name="loading_text"> Loading…</string>
+  <string name="on_now">ON NOW</string>
+  <string name="next_up">NEXT UP</string>
+  <string name="leaderboard_capital_text">LEADERBOARD</string>
+  <string name="allfeeds_camel_case">All Feeds</string>
+  <string name="recommended_session_capital_text">RECOMMENDED SESSIONS</string>
+  <string name="sponsors_capital_text">SPONSORS</string>
+  <string name="tracks_capital_text">TRACKS</string>
+  <string name="take_photo_text">Open Camera</string>
+  <string name="login_text">Login</string>
+  <string name="dp">dp</string>
+  <string name="password_text">Password</string>
+  <string name="forgot_password_text">Forgot Password</string>
+  <string name="forgot_useraname_text">Forgot Username</string>
+  <string name="important_link">Important Links</string>
+  <string name="please_wait_text"> Please wait... </string>
+  <string name="username_text">Username</string>
+  <string name="login_screen_text">By logging in, you are accepting the terms of the  </string>
+  <string name="terms_and_conditions_small_text">License Agreement</string>
+  <string name="please_enter_username_text"> Please enter username. </string>
+  <string name="please_enter_password_text"> Please enter password. </string>
+  <string name="app_name">VMworld 14</string>
+  <string name="vmworld2014_text">VMWorld 2014</string>
+  <string name="no_survey_text">There are no surveys to fill out at this time. Please check again later.</string>
+  <string name="tag_text">Tag…</string>
+  <string name="description_text">Description</string>
+  <string name="title_text">Title</string>
+  <string name="save_text">Save</string>
+  <string name="last_edited_text">Last Edited: </string>
+  <string name="add_photo_text">Add Photo</string>
+  <string name="booth_text">Booth</string>
+  <string name="qr_codes_text">QR Codes</string>
+  <string name="visit_sponsor_text">Visit Sponsor WebSite</string>
+  <string name="add_note_text">New Note</string>
+  <string name="social_post_text">Post</string>
+  <string name="twitter_camel_case">Twitter</string>
+  <string name="no_image">There was no image to show!</string>
+
+  <string name="pull_to_refresh_pull_label">Pull to refresh...</string>
+  <string name="pull_to_refresh_release_label">Release to refresh...</string>
+  <string name="pull_to_refresh_refreshing_label">Loading...</string>
+  <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
+
+  <string name="social_all_feeds_take_selfie_text">Take Selfie</string>
+  <string name="social_all_feeds_camera_text">Camera</string>
+  <string name="social_all_feeds_new_tweet_text">New Tweet</string>
+
+  <!--Font awesome-->
+  <string name="fa_bars">&#xf0c9;</string>
+  <string name="fa_twitter">&#xf099;</string>
+  <string name="fa_refresh">&#xf021;</string>
+  <string name="fa_gear">&#xf013;</string>
+  <string name="fa_edit">&#xf044;</string>
+  <string name="fa_camera">&#xf030;</string>
+  <string name="fa_bell_o">&#xf0a2;</string>
+  <string name="fa_search">&#xf002;</string>
+
+
+
+  <!-- Snyc Info -->
+  <string name="checking_for_updates_sync_text"> Checking for updates...</string>
+  <string name="your_data_is_up_to_date_sync_text"> Your data is up to date. </string>
+  <string name="last_updated_sync_text"> Last Updated: </string>
+  <string name="updates_available_sync_text"> Update available. Hit refresh to sync. </string>
+  <string name="updating_sync_text"> Updating...</string>
+  <string name="no_new_updates_sync_text"> No new updates.</string>
+  <string name="yesterday_at_sync_text"> Yesterday at </string>
+  <string name="today_at_sync_text"> Today at </string>
+
+  <!-- twitter -->
+  <string name="twitter_login_text"> Twitter login </string>
+  <string name="oops_something_went_wrong"> oops something went wrong… </string>
+  <string name="please_wait_title"> Please wait… </string>
+  <string name="authenticating_your_app_message"> Authenticating your app… </string>
+  <string name="reply_text"> Reply </string>
+  <string name="yes_text"> Yes </string>
+  <string name="favorite_text"> Favorite </string>
+  <string name="email_text"> Email </string>
+  <string name="message_text"> Message </string>
+  <string name="retweet_text"> Retweet </string>
+  <string name="no_text"> No </string>
+  <string name="cancel_text"> Cancel </string>
+  <string name="retweet_this_to_your_followers_text"> Retweet this to your followers? </string>
+  <string name="cannot_retweet_status_text"> Cannot retweet status. </string>
+  <string name="social_post_options_text"> Social Post Options </string>
+  <string name="success_text"> Success </string>
+  <string name="fail_text"> Fail </string>
+  <string name="no_network_text"> Connection not available. </string>
+  <string name="tweet_can_not_be_blank_text"> tweet can not be blank. </string>
+  <string name="network_issue_text"> Network Issue </string>
+  <string name="reply_mention_text"> Reply should contain mentions ( @username) to reply to! </string>
+  <string name="reply_text_can_not_be_blank_text">  Reply text cannot be empty! </string>
+
+</resources>

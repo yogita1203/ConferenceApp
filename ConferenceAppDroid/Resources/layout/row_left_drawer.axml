@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/left_drawer_row_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/left_menu_list_background">
+    <TextView
+        android:id="@+id/listSeperatorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/bg_repeat_session"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@color/left_menu_section_name_text"
+        android:textSize="@dimen/section_text_size"
+        android:textStyle="bold"
+        android:visibility="gone" />
+    <RelativeLayout
+        android:id="@+id/menu_item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listSeperatorTextView"
+        android:layout_centerVertical="true"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp">
+        <TextView
+            android:id="@+id/left_menu_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:textColor="@color/left_menu_name_text"
+            android:text="21" />
+        <ImageView
+            android:id="@+id/left_menu_right_arrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/left_drawer_row_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:paddingTop="3dp"
+            android:text="Social Media"
+            android:textColor="@color/left_menu_name_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/left_drawer_value_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:visibility="gone"
+            android:background="@drawable/rounded_corner_pex_blue"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/left_drawer_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/left_drawer_row_tv"
+            android:paddingBottom="3dp"
+            android:paddingRight="7dp"
+            android:layout_marginLeft="71dp"
+            android:text="More Info"
+            android:textColor="@color/left_menu_name_text"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

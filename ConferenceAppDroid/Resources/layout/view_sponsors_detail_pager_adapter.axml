@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/sponsorsNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="7dp"
+            android:visibility="gone"
+            android:textColor="@color/theme_top_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:padding="1dp"
+            android:background="@drawable/bg_image_detailpage">
+            <ImageView
+                android:id="@+id/sponsorsDetailImageView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:contentDescription="@null"
+                android:scaleType="centerInside" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/sponsorsTypeNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/sponsorsBoothTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:text="@string/booth_text"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="normal"
+            android:textColor="@android:color/black" />
+        <TextView
+            android:id="@+id/sponsorsDetailWebSiteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/visit_sponsor_text"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:textSize="@dimen/section_text_size"
+            android:drawableLeft="@drawable/ic_external_link_icon"
+            android:drawablePadding="20dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/theme_top_color"
+            android:textStyle="bold"
+            android:visibility="visible"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/background_rounded_corner_blue" />
+        <View
+            android:id="@+id/seperator1"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/dark_grey"
+            android:layout_marginTop="15dp" />
+        <RelativeLayout
+            android:id="@+id/sponsorsDetailContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/white">
+            <TextView
+                android:id="@+id/sponsorsDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/desc_text_size"
+                android:paddingBottom="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

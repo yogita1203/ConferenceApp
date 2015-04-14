@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize">
+    <Button
+        android:id="@+id/btnPrevious"
+        android:background="@drawable/bg_button"
+        android:text="&lt;"
+        android:layout_alignParentLeft="true"
+        android:layout_height="fill_parent"
+        android:layout_width="?android:attr/actionBarSize" />
+    <Button
+        android:id="@+id/btnNext"
+        android:background="@drawable/bg_button"
+        android:text="&gt;"
+        android:layout_alignParentRight="true"
+        android:layout_width="?android:attr/actionBarSize"
+        android:layout_height="fill_parent" />
+    <TextView
+        android:id="@+id/tvDate"
+        android:text="Agenda date"
+        android:layout_toLeftOf="@id/btnNext"
+        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="?android:attr/actionBarSize"
+        android:gravity="center"
+        android:textStyle="bold" />
+</RelativeLayout>

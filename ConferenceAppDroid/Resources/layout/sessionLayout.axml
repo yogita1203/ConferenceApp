@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:animateLayoutChanges="true"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:id="@+id/session_search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/search_bg"
+        android:layout_alignParentTop="true"
+        android:visibility="gone">
+        <Button
+            android:id="@+id/session_search_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="7dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/search_large"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/session_search_cancel_container_btn"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@color/session_search_cancel_container_btn_bg_color"
+            android:text="@string/cancel_text"
+            android:textColor="@color/session_search_cancel_container_btn_text_color"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="35dp" />
+        <Button
+            android:id="@+id/session_search_cancel_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_toLeftOf="@id/session_search_cancel_container_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_delete_recipient"
+            android:visibility="gone" />
+        <EditText
+            android:id="@+id/session_search_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/session_search_btn"
+            android:layout_toLeftOf="@id/session_search_cancel_btn"
+            android:textColor="@color/session_day_search_edit_text"
+            android:textCursorDrawable="@drawable/bg_white_cursor"
+            android:hint="@string/search_text"
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
+    </RelativeLayout>
+    <HorizontalScrollView
+        android:id="@+id/HorizontalScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_below="@id/session_search_container"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sessionGroup" />
+    </HorizontalScrollView>
+    <RelativeLayout
+        android:id="@+id/select_filter_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/HorizontalScrollView01"
+        android:visibility="visible">
+        <TextView
+            android:id="@+id/filter_tracks_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="All Tracks"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/select_subtrack_filter_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_filter_container"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/filter_sub_tracks_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Select Sub-track"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:textStyle="normal" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/select_subtrack_filter_container"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/session_NoData_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:visibility="gone" />
+        <ListView
+            android:id="@+id/sessionListView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:scrollbars="none"
+            android:divider="@color/grey"
+            android:dividerHeight="0.5dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/session_loading_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:visibility="visible">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+            <include
+                layout="@layout/view_loading" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

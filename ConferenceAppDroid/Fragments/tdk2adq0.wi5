@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using CommonLayer;
+using ConferenceAppDroid.Utilities;
+using SQLiteNetExtensions.Extensions;
+using CommonLayer.Entities.Built;
+
+namespace ConferenceAppDroid.Fragments
+{
+    public class SessionDetailFragment : Android.Support.V4.App.Fragment
+    {
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            var view = inflater.Inflate(Resource.Layout.view_header_session_detail_screen, null);
+            var sessionDisplayNameTextView = view.FindViewById<TextView>(Resource.Id.sessionDisplayNameTextView);
+
+            var locationAndTimeTextView = view.FindViewById<TextView>(Resource.Id.locationAndTimeTextView);
+
+            var sessionTimeTextView = view.FindViewById<TextView>(Resource.Id.sessionTimeTextView);
+
+            var session_detail_track_color = view.FindViewById<TextView>(Resource.Id.session_detail_track_color);
+
+            var sessionDescriptionTextView = view.FindViewById<TextView>(Resource.Id.sessionDescriptionTextView);
+            var scheduleImageView = view.FindViewById<ImageView>(Resource.Id.scheduleImageView);
+
+            var session_detail_add_to_schedule_tv_label = view.FindViewById<TextView>(Resource.Id.session_detail_add_to_schedule_tv_label);
+            var scheduleAddedImageView = view.FindViewById<ImageView>(Resource.Id.scheduleAddedImageView);
+            var session_detail_added_to_schedule_tv_label = view.FindViewById<TextView>(Resource.Id.session_detail_added_to_schedule_tv_label);
+
+            #region--ID--
+            var sessionDetail_textview_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_textview_id);
+            var sessionDetail_textview_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_textview_value);
+            #endregion
+
+            var sessionDetail_twitter_hash_tag_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_twitter_hash_tag_id);
+            var sessionDetail_twitter_hash_tag_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_twitter_hash_tag_value);
+
+            var sessionDetail_trackTextView_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_trackTextView_id);
+            var sessionDetail_trackTextView_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_trackTextView_value);
+
+            var sessionDetail_subTrackSectionTextView_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_subTrackSectionTextView_id);
+
+            var sessionDetail_technical_level_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_technical_level_id);
+            var sessionDetail_technical_level_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_technical_level_value);
+
+            var sessionDetail_market_segment_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_market_segment_id);
+            var sessionDetail_market_segment_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_market_segment_value);
+
+            var competency_textview_id = view.FindViewById<TextView>(Resource.Id.competency_textview_id);
+            var competency_textview_value = view.FindViewById<TextView>(Resource.Id.competency_textview_value);
+
+            var sessionDetail_product_n_topic_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_product_n_topic_id);
+            var sessionDetail_product_n_topic_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_product_n_topic_value);
+
+            var sessionDetail_audience_container_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_audience_container_id);
+
+            var sessionDetail_session_type_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_session_type_id);
+            var sessionDetail_session_type_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_session_type_value);
+
+            var sessionDetail_role_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_role_id);
+            var sessionDetail_roleNameTextView_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_roleNameTextView_value);
+
+            var sessionDetail_industry_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_industry_id);
+            var sessionDetail_industryTextView_value = view.FindViewById<TextView>(Resource.Id.sessionDetail_industryTextView_value);
+
+            var sessionDetail_skilllevel_id = view.FindViewById<TextView>(Resource.Id.sessionDetail_skilllevel_id);
+            var sessionDetails_speakerSectionTextView = view.FindViewById<TextView>(Resource.Id.sessionDetails_speakerSectionTextView);
+
+            var currentSession = DataManager.GetSessionTimeFromSessionIds(DBHelper.Instance.Connection, new List<string> { "4694" }).Result.FirstOrDefault();
+            if(!string.IsNullOrWhiteSpace(currentSession.BuiltSession.title))
+            {
+                sessionDisplayNameTextView.Visibility = ViewStates.Visible;
+                sessionDisplayNameTextView.Text = currentSession.BuiltSession.title;
+            }
+
+            if (!string.IsNullOrWhiteSpace(currentSession.room))
+            {
+                locationAndTimeTextView.Visibility = ViewStates.Visible;
+                locationAndTimeTextView.Text = currentSession.room;
+            }
+            
+           if (currentSession.date != null && currentSession.date.Length > 0)
+           {
+               sessionTimeTextView.Visibility = ViewStates.Visible;
+               sessionTimeTextView.Text = currentSession.date;
+           }
+           if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession._abstract))
+           {
+               sessionDescriptionTextView.Visibility = ViewStates.Visible;
+               sessionDescriptionTextView.Text = currentSession.BuiltSession._abstract;
+           }
+            if(!string.IsNullOrWhiteSpace(currentSession.BuiltSession.abbreviation))
+            {
+                sessionDetail_textview_id.Visibility=ViewStates.Visible;
+                sessionDetail_textview_value.Visibility = ViewStates.Visible;
+                sessionDetail_textview_value.Text=currentSession.BuiltSession.abbreviation;
+            }
+            if (!string.IsNullOrWhiteSpace(currentSession.BuiltSession.abbreviation))
+            {
+            }
+            return view;
+        }
+    }
+}

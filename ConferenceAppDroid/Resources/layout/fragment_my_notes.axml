@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/newNotesButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:drawableTop="@drawable/ic_new_compose_selected" />
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/notesGroup">
+        <conferenceappdroid.customcontrols.SegmentedControlButton
+            android:checked="true"
+            android:text="by Date"
+            android:id="@+id/optionDate"
+            android:minHeight="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+        <conferenceappdroid.customcontrols.SegmentedControlButton
+            android:checked="false"
+            android:text="by Title"
+            android:id="@+id/optionTitle"
+            android:minHeight="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+        <conferenceappdroid.customcontrols.SegmentedControlButton
+            android:checked="false"
+            android:text="by Tag"
+            android:id="@+id/optionTag"
+            android:minHeight="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1" />
+    </RadioGroup>
+    <ListView
+        android:id="@+id/myNotesListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/notesGroup"
+        android:layout_above="@id/newNotesButton"
+        android:scrollbars="none" />
+</RelativeLayout>

@@ -1,0 +1,101 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <style type="text/css">
+        body {
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            word-wrap: break-word;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        div, p {
+            display: block;
+        }
+
+        #content p {
+            margin: 0 0 10px 0;
+            padding: 0 20px;
+        }
+
+        #container {
+            position: absolute;
+            top: 0;
+            font-family: "ProximaNova-Regular";
+        }
+
+        #container p {
+           padding: 0 20px;
+           text-align: center;
+        }
+
+        #container p:last-child {
+            margin-bottom: 0;
+        }
+
+        #container a {
+            color: inherit;
+        }
+    </style>
+    <script type="text/javascript">
+        function positionDomContainer() {
+            var domContainer = document.getElementById('container');
+            domContainer.style.left = (window.innerWidth - domContainer.clientWidth) / 2  +  'px';
+            domContainer.style.top = (window.innerHeight - domContainer.clientHeight) / 2 + 'px';
+        }
+        function prepareIntroHTML(descHTML, bgColor, bgImageData, txtColor) {
+            var mainbody = window.document.body
+            mainbody.style.backgroundColor = bgColor
+            mainbody.style.margin = 0, 0, 0, 0
+
+            var imgcontainer = document.createElement('img');
+            imgcontainer.src = 'data:image/png;base64,' + bgImageData
+            mainbody.style.backgroundImage = 'url("' + imgcontainer.src + '")';
+           
+            var container = document.createElement('div');
+            container.id = 'container';
+            window.document.body.appendChild(container);
+            container.innerHTML = descHTML;
+
+            positionDomContainer();
+
+
+            var pTagArr = document.getElementsByTagName('p');
+            for (var i = 0; i < pTagArr.length; i++) {
+                var pTag = pTagArr[i];
+                pTag.style.color = txtColor;
+            }
+        }
+
+        function showContent(text) {
+            var mainbody = window.document.body
+            mainbody.style.margin = 10, 10, 10, 10
+            var container = document.createElement('div');
+            container.id = 'content';
+            window.document.body.appendChild(container);
+            container.innerHTML = text;
+        }
+
+        window.onresize = positionDomContainer;
+
+    </script>
+</head>
+<body></body>
+</html>

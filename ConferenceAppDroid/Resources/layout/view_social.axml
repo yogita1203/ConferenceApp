@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+    <LinearLayout
+        android:id="@+id/social_tabs_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/social_tabs_all_feed_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_description"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:textSize="@dimen/section_text_size"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textStyle="bold"
+            android:text="@string/allfeeds_camel_case" />
+        <Button
+            android:id="@+id/social_tabs_imp_link_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/section_text_size"
+            android:textColor="@color/text_description"
+            android:text="@string/important_link"
+            style="?android:attr/buttonBarButtonStyle"
+            android:textStyle="bold"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/sessionFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/social_tabs_container"
+        android:background="@android:color/white" />
+</RelativeLayout>

@@ -1,0 +1,162 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using CommonLayer.Entities.Built;
+using CommonLayer;
+using ConferenceAppDroid.Utilities;
+using System.Threading.Tasks;
+
+namespace ConferenceAppDroid.Fragments
+{
+   public class MyInterestSessionFragment: Android.Support.V4.App.Fragment
+    {
+       TextView txtNoData;
+       ListView lstInterest;
+       InterestAdapter adapter;
+       public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+       {
+           var view = inflater.Inflate(Resource.Layout.view_my_interest, null);
+           txtNoData = view.FindViewById<TextView>(Resource.Id.Interest_NoData_TextView);
+           lstInterest=view.FindViewById<ListView>(Resource.Id.lstInterest);
+           getALLInterests(res => 
+           {
+               adapter = new InterestAdapter(Activity, Resource.Layout.row_list_sf, res);
+               Activity.RunOnUiThread(() =>
+               {
+                   lstInterest.Adapter = adapter;
+               });
+           });
+           return view;
+       }
+
+       private void getALLInterests(Action<List<BuiltSessionTime>> callback)
+       {
+           Func<string, string> convertToDate = (Date) =>
+           {
+               var date = DateTime.Parse(Date).ToString("ddd, MMM dd");
+               return date;
+           };
+           List<BuiltSessionTime> temp = new List<BuiltSessionTime>();
+           Dictionary<string, BuiltSessionTime[]> filteredList = new Dictionary<string, BuiltSessionTime[]>();
+           DataManager.GetMyInterest(DBHelper.Instance.Connection).ContinueWith(t =>
+           {
+               var allInterest = t.Result;
+               if (allInterest != null && allInterest.Count > 0)
+               {
+                   var ids = allInterest.Select(p => p.session_time_id).ToList();
+                   DataManager.GetSessionTimeFromSessionIds(DBHelper.Instance.Connection, ids).ContinueWith(s =>
+                   {
+                       var result = s.Result;
+
+                       if (callback != null)
+                       {
+                           callback(result);
+                       }
+                   });
+               }
+               else
+               {
+                   if (callback != null)
+                   {
+                       callback(new List<BuiltSessionTime>());
+                   }
+               }
+           });
+       }
+    }
+
+   public class InterestAdapter : ArrayAdapter<BuiltSessionTime>
+   {
+       TextView sessionName;
+       TextView room;
+       TextView sessionDateTime;
+       List<BuiltSessionTime> items;
+       BuiltTracks builtTracks = null;
+       Android.App.Activity context;
+       string[] keys;
+       public int selectedTab = 0;
+       private readonly int _resource;
+       public InterestAdapter(Android.App.Activity context, int resource,  List<BuiltSessionTime> items)
+           : base(context, resource, items)
+       {
+           this.context = context;
+           this.items = items;
+           _resource = resource;
+       }
+
+       public override View GetView(int position, View convertView, ViewGroup parent)
+       {
+           var builtSessionTime = items[position];
+
+           View view = convertView;
+           if (view == null) // no view to re-use, create new
+               view = (RelativeLayout)this.context.LayoutInflater.Inflate(_resource, parent, false);
+
+           sessionName = view.FindViewById<TextView>(Resource.Id.session_title_name_tv);
+           room = view.FindViewById<TextView>(Resource.Id.session_address_tv);
+           sessionDateTime = view.FindViewById<TextView>(Resource.Id.session_date_time_tv);
+           UpdateCell(builtSessionTime)
+           return view;
+       }
+
+       public void UpdateCell(BuiltSessionTime builtSessionTime,List<BuiltTracks> parentTracks)
+       {
+           if (builtSessionTime.BuiltSession != null)
+           {
+               builtTracks = parentTracks.FirstOrDefault(p => p.name == builtSessionTime.BuiltSession.track);
+               sessionName.Text = builtSessionTime.BuiltSession.title;
+           }
+           room.Text = builtSessionTime.room;
+           var startDate=convertToStartDate(builtSessionTime.time);
+           var endDate=convertToEndDate(builtSessionTime.time, builtSessionTime.length);
+           sessionDateTime.Text = startDate + endDate;
+       }
+
+       public string convertToStartDate(string time)
+       {
+           if (String.IsNullOrWhiteSpace(time))
+               return String.Empty;
+
+           try
+           {
+               var date = DateTime.Parse(time);
+               return ToDateTimeString(date, "hh:mm tt").ToLower();
+           }
+           catch
+           {
+               return String.Empty;
+           }
+       }
+
+       public string convertToEndDate(string time, string length)
+       {
+           if (String.IsNullOrWhiteSpace(time))
+               return String.Empty;
+
+           try
+           {
+               var endDate = DateTime.Parse(time).AddMinutes(Convert.ToInt32(length));
+               return ToDateTimeString(endDate, "hh:mm tt").ToLower();
+           }
+           catch
+           {
+               return String.Empty;
+           }
+       }
+       public static string ToDateTimeString(DateTime dt, string format)
+       {
+           if (String.IsNullOrWhiteSpace(format))
+               return String.Empty;
+           else
+               return dt.ToString(format);
+       }
+   }
+}

@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.Support.V4.App;
+using ConferenceAppDroid.Fragments;
+using ConferenceAppDroid.CustomControls;
+using ConferenceAppDroid.Core;
+
+namespace ConferenceAppDroid
+{
+    [Activity(Label = "SessionDetail", MainLauncher = true, Icon = "@drawable/icon")]
+    public class SessionDetail : BaseActivity
+    {
+        public SessionDetail()
+            : base(Resource.String.ApplicationName)
+        { }
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.activity_session_detail_screen);
+            View actionBarView=LayoutInflater.Inflate(Resource.Layout.view_action_bar,null);
+            ActionBar.SetCustomView(actionBarView);
+            ActionBar.DisplayOptions = ActionBarDisplayOptions.ShowCustom;
+
+
+            var mPager = FindViewById<CustomViewPagerWithNoScroll>(Resource.Id.pager);
+            mPager.SetPagingEnabled(true);
+            var sessionDetailAdapter = new SessionDetailAdapter(SupportFragmentManager);
+            mPager.Adapter = sessionDetailAdapter;
+        }
+
+        public class SessionDetailAdapter : FragmentPagerAdapter
+        {
+            public SessionDetailAdapter(Android.Support.V4.App.FragmentManager fm):base(fm)
+            {
+
+            }
+            public override Android.Support.V4.App.Fragment GetItem(int position)
+            {
+                return new SessionDetailFragment();
+            }
+            public override int Count
+            {
+                get
+                {
+                    return 1;
+                }
+            }
+        }
+    }
+}

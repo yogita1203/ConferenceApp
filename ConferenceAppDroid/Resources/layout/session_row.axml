@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/session_star_image_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:padding="10dp"
+        tools:ignore="ContentDescription" />
+    <RelativeLayout
+        android:id="@+id/session_section_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:gravity="center_vertical"
+        android:layout_toLeftOf="@id/session_star_image_btn">
+        <TextView
+            android:id="@+id/session_title_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/session_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/session_title_name_tv"
+            android:layout_marginLeft="7dp"
+            android:singleLine="true"
+            android:textColor="@color/text_menu_datetime"
+            android:textSize="@dimen/desc_text_size"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/session_date_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/session_address_tv"
+            android:layout_marginLeft="7dp"
+            android:singleLine="true"
+            android:textColor="@color/text_menu_datetime"
+            android:textSize="@dimen/desc_text_size"
+            android:textStyle="normal" />
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/session_track_color"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:minHeight="75dp"
+        android:scaleType="centerInside"
+        tools:ignore="ContentDescription" />
+</RelativeLayout>

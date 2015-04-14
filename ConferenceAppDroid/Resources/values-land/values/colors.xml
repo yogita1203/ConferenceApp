@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="black">#000000</color>
+  <color name="white">#ffffff</color>
+  <color name="red">#FC0307</color>
+  <color name="grey">#f2f2f2</color>
+  <color name="dark_grey">#D9DBD3</color>
+  <color name="left_drawer_title_container_bg">#191919</color>
+  <color name="left_drawer_row_bg">#333333</color>
+  <color name="left_drawer_static_schedule">#B4B4B4</color>
+  <color name="explore_top_label">#646464</color>
+  <color name="explore_middle_label">#686868</color>
+  <color name="tab_strib">#0000FF</color>
+  <color name="tab_strib_divider">#C8C8C8</color>
+  <color name="yellow">#EDEB72</color>
+  <color name="blue">#075FED</color>
+  <color name="gold">#B09907</color>
+  <color name="silver">#D1CFC5</color>
+  <color name="bronze">#5B391E</color>
+
+</resources>

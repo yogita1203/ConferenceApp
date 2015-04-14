@@ -1,0 +1,98 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using CommonLayer.Entities.Built;
+using CommonLayer;
+using ConferenceAppDroid.Utilities;
+using System.Threading.Tasks;
+
+namespace ConferenceAppDroid.Fragments
+{
+   public class MyInterestSessionFragment: Android.Support.V4.App.Fragment
+    {
+       TextView txtNoData;
+       ListView lstInterest;
+       public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+       {
+           var view = inflater.Inflate(Resource.Layout.view_my_interest, null);
+           txtNoData = view.FindViewById<TextView>(Resource.Id.Interest_NoData_TextView);
+           lstInterest=view.FindViewById<ListView>(Resource.Id.lstInterest);
+
+           return view;
+       }
+
+       private void getALLInterests(Action<Dictionary<string, BuiltSessionTime[]>> callback)
+       {
+           Func<string, string> convertToDate = (Date) =>
+           {
+               var date = DateTime.Parse(Date).ToString("ddd, MMM dd");
+               return date;
+           };
+           List<BuiltSessionTime> temp = new List<BuiltSessionTime>();
+           Dictionary<string, BuiltSessionTime[]> filteredList = new Dictionary<string, BuiltSessionTime[]>();
+           DataManager.GetMyInterest(DBHelper.Instance.Connection).ContinueWith(t =>
+           {
+               var allInterest = t.Result;
+               if (allInterest != null && allInterest.Count > 0)
+               {
+                   var ids = allInterest.Select(p => p.session_time_id).ToList();
+                   DataManager.GetSessionTimeFromSessionIds(DBHelper.Instance.Connection, ids).ContinueWith(s =>
+                   {
+                       var data = s.Result;
+                       var result = data.OrderBy(p => p.time).GroupBy(p => p.date).OrderBy(p => p.Key).ToDictionary(p => (p.Key), p => p.ToArray().OrderBy(q => q.time).ToArray());
+
+                       if (callback != null)
+                       {
+                           callback(result);
+                       }
+                   });
+               }
+               else
+               {
+                   if (callback != null)
+                   {
+                       callback(new Dictionary<string, BuiltSessionTime[]>());
+                   }
+               }
+           });
+       }
+    }
+
+   public class InterestAdapter : ArrayAdapter<BuiltSessionTime>
+   {
+       Dictionary<string, BuiltSessionTime[]> items;
+       Android.App.Activity context;
+       string[] keys;
+       public int selectedTab = 0;
+       private readonly int _resource;
+       public InterestAdapter(Android.App.Activity context, int resource,  List<BuiltSessionTime> items)
+           : base(context, resource, items.Values.ToList()[0])
+       {
+           var temp = items.Values.ToList()[0];
+           this.context = context;
+           this.items = items;
+           _resource = resource;
+           keys = items.Keys.ToArray();
+       }
+
+       public override View GetView(int position, View convertView, ViewGroup parent)
+       {
+           var item = items[keys[selectedTab]][position];
+
+           View view = convertView;
+           if (view == null) // no view to re-use, create new
+               view = (RelativeLayout)this.context.LayoutInflater.Inflate(_resource, parent, false);
+           view.FindViewById<TextView>(Resource.Id.sf_text_title).Text = item.venue_name;
+           view.FindViewById<TextView>(Resource.Id.sf_text_desc).Text = item.address;
+           return view;
+       }
+   }
+}
